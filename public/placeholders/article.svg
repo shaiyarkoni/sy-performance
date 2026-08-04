@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c2126"/>
+      <stop offset="1" stop-color="#08090a"/>
+    </linearGradient>
+    <pattern id="stripes" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="3" height="26" fill="#c6f833" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#stripes)"/>
+  <g opacity="0.3" stroke="#c6f833" stroke-width="6" fill="none">
+    <rect x="620" y="300" width="360" height="300"/>
+    <line x1="670" y1="370" x2="930" y2="370"/>
+    <line x1="670" y1="430" x2="930" y2="430"/>
+    <line x1="670" y1="490" x2="860" y2="490"/>
+  </g>
+  <text x="800" y="690" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#98a1a9" letter-spacing="10" text-anchor="middle">ARTICLE</text>
+</svg>

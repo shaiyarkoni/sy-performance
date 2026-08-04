@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #08090a;
+  --color-ink-soft: #0e1113;
+  --color-surface: #15181b;
+  --color-surface-hi: #1d2226;
+  --color-line: #272d33;
+  --color-fog: #98a1a9;
+  --color-chalk: #f5f7f8;
+  --color-volt: #c6f833;
+  --color-volt-deep: #9ccd0f;
+
+  --font-sans: var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    /* Renders native selects, scrollbars and form controls to match the dark theme */
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-chalk);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-volt);
+    color: #000;
+  }
+
+  /* Hebrew headlines read better slightly tighter than the Latin default */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .section {
+    padding-block: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 7.5rem;
+    }
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to left, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  .stripes {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-volt) 0 2px,
+      transparent 2px 9px
+    );
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-line);
+    background-color: var(--color-ink-soft);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: var(--color-chalk);
+    outline: none;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+
+  .field::placeholder {
+    color: #6b747c;
+  }
+
+  .field:focus {
+    border-color: var(--color-volt);
+    box-shadow: 0 0 0 3px rgba(198, 248, 51, 0.14);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--color-line);
+    color: transparent;
+  }
+}
