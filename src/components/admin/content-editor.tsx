@@ -10,6 +10,7 @@ import {
   ExternalLink,
   FileText,
   Flame,
+  HelpCircle,
   Loader2,
   LogOut,
   MessageSquareQuote,
@@ -27,6 +28,7 @@ import {
   BrandPanel,
   CertificatesPanel,
   ContactPanel,
+  FaqPanel,
   HeroPanel,
   ProgramsPanel,
   TestimonialsPanel,
@@ -41,6 +43,7 @@ const tabs = [
   { id: "certificates", label: "תעודות", Icon: Award },
   { id: "testimonials", label: "ממליצים", Icon: MessageSquareQuote },
   { id: "articles", label: "מאמרים", Icon: FileText },
+  { id: "faq", label: "שאלות ותשובות", Icon: HelpCircle },
   { id: "contact", label: "צור קשר", Icon: Phone },
   { id: "brand", label: "פרטי המותג", Icon: Building2 },
 ] as const;
@@ -184,6 +187,12 @@ export function ContentEditor({ initial }: { initial: SiteContent }) {
               <ArticlesPanel
                 value={content.articles}
                 onChange={(value) => set("articles", value)}
+              />
+            ) : null}
+            {tab === "faq" ? (
+              <FaqPanel
+                value={content.faq}
+                onChange={(value) => set("faq", value)}
               />
             ) : null}
             {tab === "contact" ? (

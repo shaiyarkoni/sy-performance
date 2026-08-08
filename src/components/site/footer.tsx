@@ -11,6 +11,7 @@ const navLinks = [
   { href: "/#certificates", label: "תעודות" },
   { href: "/#testimonials", label: "ממליצים" },
   { href: "/#article", label: "מאמר" },
+  { href: "/#faq", label: "שאלות ותשובות" },
   { href: "/#contact", label: "צור קשר" },
 ];
 

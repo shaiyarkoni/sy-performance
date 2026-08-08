@@ -1,0 +1,4 @@
+Game audio (Mixkit License — https://mixkit.co/license/), files in public/sounds/game/:
+- crowd-ambient.mp3 — Ambient sports crowd sound
+- swish.mp3 — Basketball ball hitting the net
+- buzzer.mp3 — Basketball buzzer

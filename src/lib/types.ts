@@ -40,6 +40,12 @@ export type Testimonial = {
   image: string;
 };
 
+export type FaqItem = {
+  id: string;
+  question: string;
+  answer: string;
+};
+
 export type Article = {
   id: string;
   slug: string;
@@ -110,7 +116,17 @@ export type SiteContent = {
     eyebrow: string;
     heading: string;
     subheading: string;
+    /** שם המחבר לזכויות יוצרים ול-SEO (למשל: שי ירקוני). */
+    authorName: string;
+    /** טקסט זכויות יוצרים שמוצג בראש ובסוף המאמר המלא. */
+    copyrightNotice: string;
     items: Article[];
+  };
+  faq: {
+    eyebrow: string;
+    heading: string;
+    subheading: string;
+    items: FaqItem[];
   };
   contact: {
     eyebrow: string;

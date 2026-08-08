@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { Brand } from "./brand";
+import { NavGameLink } from "./nav-game-link";
 import { buttonClass } from "@/components/ui/button";
 
 const links = [
@@ -13,9 +15,11 @@ const links = [
   { href: "#certificates", label: "תעודות" },
   { href: "#testimonials", label: "ממליצים" },
   { href: "#article", label: "מאמר" },
+  { href: "#faq", label: "שאלות ותשובות" },
+  { href: "#contact", label: "צור קשר" },
 ];
 
-export function Navbar({ whatsappHref }: { whatsappHref: string }) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -60,11 +64,13 @@ export function Navbar({ whatsappHref }: { whatsappHref: string }) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-3">
+          <div
+            className="flex items-center gap-2 sm:gap-3"
+            style={{ direction: "ltr" }}
+          >
+            <NavGameLink />
             <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contact"
               className={buttonClass("volt", "md", "hidden sm:inline-flex")}
             >
               דברו איתי
@@ -121,14 +127,20 @@ export function Navbar({ whatsappHref }: { whatsappHref: string }) {
               ))}
             </ul>
 
-            <div className="shell mt-8">
+            <div className="shell mt-8 flex flex-col gap-3">
+              <Link
+                href="/game"
+                onClick={() => setOpen(false)}
+                className={buttonClass("outline", "lg", "w-full")}
+              >
+                TEST GAME
+              </Link>
               <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
+                onClick={() => setOpen(false)}
                 className={buttonClass("volt", "lg", "w-full")}
               >
-                דברו איתי בוואטסאפ
+                דברו איתי
               </a>
             </div>
           </motion.div>

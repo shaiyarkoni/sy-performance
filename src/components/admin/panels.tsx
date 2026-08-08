@@ -524,6 +524,18 @@ export function ArticlesPanel({ value, onChange }: PanelProps<"articles">) {
           onChange={(subheading) => set({ subheading })}
           rows={3}
         />
+        <TextField
+          label="שם המחבר (זכויות יוצרים)"
+          value={value.authorName ?? ""}
+          onChange={(authorName) => set({ authorName })}
+        />
+        <TextAreaField
+          label="הודעת זכויות יוצרים"
+          value={value.copyrightNotice ?? ""}
+          onChange={(copyrightNotice) => set({ copyrightNotice })}
+          rows={3}
+          hint="מוצגת בראש ובסוף עמוד המאמר המלא."
+        />
       </Panel>
 
       <Panel
@@ -570,7 +582,7 @@ export function ArticlesPanel({ value, onChange }: PanelProps<"articles">) {
                 value={item.body}
                 onChange={(body) => update({ body })}
                 rows={16}
-                hint="שורה ריקה בין פסקאות. שורה שמסתיימת בנקודתיים תוצג ככותרת ביניים."
+                hint="שורה ריקה בין פסקאות. שורה שמסתיימת בנקודתיים = כותרת ביניים. שורה עם --- בלבד: מה שאחריה לא באתר (לפני הכפתור «מעבר למאמר מלא»). בלי --- מוצגות 22 השורות הראשונות."
               />
               <Row>
                 <TextField
@@ -590,6 +602,65 @@ export function ArticlesPanel({ value, onChange }: PanelProps<"articles">) {
                 label="תמונת כותרת"
                 value={item.image}
                 onChange={(image) => update({ image })}
+              />
+            </>
+          )}
+        />
+      </Panel>
+    </>
+  );
+}
+
+export function FaqPanel({ value, onChange }: PanelProps<"faq">) {
+  const set = useSetter(value, onChange);
+
+  return (
+    <>
+      <Panel title="שאלות ותשובות" description="כותרות הסקשן.">
+        <TextField
+          label="כותרת קטנה"
+          value={value.eyebrow}
+          onChange={(eyebrow) => set({ eyebrow })}
+        />
+        <TextField
+          label="כותרת ראשית"
+          value={value.heading}
+          onChange={(heading) => set({ heading })}
+        />
+        <TextAreaField
+          label="תיאור"
+          value={value.subheading}
+          onChange={(subheading) => set({ subheading })}
+          rows={3}
+        />
+      </Panel>
+
+      <Panel
+        title="שאלות"
+        description="לחיצה על שאלה באתר פותחת את התשובה מתחתיה."
+      >
+        <ListEditor
+          items={value.items}
+          onChange={(items) => set({ items })}
+          createItem={() => ({
+            id: newId(),
+            question: "",
+            answer: "",
+          })}
+          itemTitle={(item) => item.question}
+          addLabel="הוסף שאלה"
+          renderItem={(item, update) => (
+            <>
+              <TextField
+                label="שאלה"
+                value={item.question}
+                onChange={(question) => update({ question })}
+              />
+              <TextAreaField
+                label="תשובה"
+                value={item.answer}
+                onChange={(answer) => update({ answer })}
+                rows={5}
               />
             </>
           )}

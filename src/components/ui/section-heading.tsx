@@ -27,7 +27,7 @@ export function SectionHeading({
           {eyebrow}
         </span>
       </div>
-      <h2 className="mt-4 text-3xl font-black text-balance sm:text-4xl lg:text-5xl">
+      <h2 className="mt-4 text-3xl font-black text-balance text-chalk sm:text-4xl lg:text-5xl">
         {heading}
       </h2>
       {subheading ? (

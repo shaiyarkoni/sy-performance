@@ -22,6 +22,12 @@
   html {
     /* Renders native selects, scrollbars and form controls to match the dark theme */
     color-scheme: dark;
+    scroll-padding-top: 5.75rem;
+  }
+
+  /* Anchor targets (#article, #contact, …) sit below the fixed navbar */
+  :target {
+    scroll-margin-top: 5.75rem;
   }
 
   body {
@@ -119,5 +125,22 @@
   .text-stroke {
     -webkit-text-stroke: 1px var(--color-line);
     color: transparent;
+  }
+
+  .animate-shake {
+    animation: shake 0.22s ease-in-out;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
   }
 }

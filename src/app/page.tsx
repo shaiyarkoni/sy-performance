@@ -6,6 +6,7 @@ import { Programs } from "@/components/site/programs";
 import { Certificates } from "@/components/site/certificates";
 import { Testimonials } from "@/components/site/testimonials";
 import { ArticleTeaser } from "@/components/site/article-teaser";
+import { Faq } from "@/components/site/faq";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 import { WhatsappFab } from "@/components/site/whatsapp-fab";
@@ -21,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <Navbar whatsappHref={whatsappHref} />
+      <Navbar />
 
       <main className="flex-1">
         <Hero hero={content.hero} whatsappHref={whatsappHref} />
@@ -34,6 +35,7 @@ export default async function Home() {
         <Certificates certificates={content.certificates} />
         <Testimonials testimonials={content.testimonials} />
         <ArticleTeaser articles={content.articles} />
+        <Faq faq={content.faq} />
         <Contact
           contact={content.contact}
           programNames={content.programs.items.map((program) => program.name)}
