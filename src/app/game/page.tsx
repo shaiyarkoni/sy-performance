@@ -12,22 +12,22 @@ export const metadata: Metadata = {
 export default function GameHubPage() {
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-xl">
-        <div className="shell flex h-16 items-center justify-between py-3">
-          <Link href="/">
-            <Brand compact />
-          </Link>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-fog transition-colors hover:text-volt"
-          >
-            חזרה לאתר
-            <ArrowRight className="size-4" />
-          </Link>
-        </div>
-      </header>
+      <header className="site-header-bar sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-xl">
+      <div className="shell flex min-h-14 items-center justify-between gap-2 py-2.5 sm:min-h-16 sm:py-3">
+        <Link href="/" className="min-w-0 shrink">
+          <Brand compact />
+        </Link>
+        <Link
+          href="/"
+          className="inline-flex max-w-[45%] shrink-0 items-center gap-1.5 text-xs font-medium text-fog transition-colors hover:text-volt sm:max-w-none sm:gap-2 sm:text-sm"
+        >
+          <span className="truncate">חזרה לאתר</span>
+          <ArrowRight className="size-4 shrink-0" />
+        </Link>
+      </div>
+    </header>
 
-      <main className="shell flex flex-1 flex-col py-10 sm:py-14">
+    <main className="shell flex flex-1 flex-col overflow-x-clip py-8 sm:py-14">
         <p className="text-xs font-bold tracking-[0.2em] text-volt uppercase">
           TEST GAME
         </p>

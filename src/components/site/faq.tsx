@@ -44,7 +44,7 @@ export function Faq({ faq }: { faq: SiteContent["faq"] }) {
                     aria-expanded={open}
                     aria-controls={`faq-a-${item.id}`}
                     onClick={() => toggle(item.id)}
-                    className="flex w-full items-start gap-4 p-5 text-start transition-colors hover:text-volt"
+                    className="flex w-full items-start gap-3 p-4 text-start transition-colors hover:text-volt sm:gap-4 sm:p-5"
                   >
                     <span
                       className={`mt-1 grid size-8 shrink-0 place-items-center rounded-full border transition-colors ${
@@ -76,7 +76,7 @@ export function Faq({ faq }: { faq: SiteContent["faq"] }) {
                         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="border-t border-line px-5 pt-4 pb-5 ps-[4.25rem] leading-relaxed text-fog">
+                        <p className="border-t border-line px-4 pt-4 pb-5 leading-relaxed text-fog sm:px-5 sm:ps-[4.25rem]">
                           {item.answer}
                         </p>
                       </motion.div>

@@ -15,7 +15,7 @@ export function Brand({ compact = false }: { compact?: boolean }) {
         width={width}
         height={height}
         priority={!compact}
-        className="h-auto w-auto max-w-[min(100%,11rem)] object-contain object-left"
+        className="h-auto w-auto max-w-[min(100%,9rem)] object-contain object-left sm:max-w-[min(100%,11rem)]"
         sizes={compact ? "128px" : "168px"}
       />
     </span>

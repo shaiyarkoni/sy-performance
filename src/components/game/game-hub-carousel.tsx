@@ -44,7 +44,7 @@ export function GameHubCarousel() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 full-bleed overflow-x-clip">
       <div className="relative">
         <button
           type="button"
@@ -68,7 +68,7 @@ export function GameHubCarousel() {
         <div
           ref={scrollerRef}
           onScroll={onScroll}
-          className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth py-1 ps-4 pe-4 sm:ps-8 sm:pe-8"
+          className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth py-1 ps-[max(1rem,env(safe-area-inset-left))] pe-[max(1rem,env(safe-area-inset-right))] sm:ps-8 sm:pe-8"
           style={{ direction: "ltr" }}
         >
           {GAME_CATALOG.map((game) => {

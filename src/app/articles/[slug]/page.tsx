@@ -100,22 +100,22 @@ export default async function ArticlePage(
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-xl">
-        <div className="shell flex h-18 items-center justify-between py-4">
-          <Link href="/">
+      <header className="site-header-bar sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-xl">
+        <div className="shell flex min-h-14 items-center justify-between gap-2 py-2.5 sm:min-h-16 sm:py-4">
+          <Link href="/" className="min-w-0 shrink">
             <Brand />
           </Link>
           <Link
             href="/#article"
-            className="inline-flex items-center gap-2 text-sm font-medium text-fog transition-colors hover:text-volt"
+            className="inline-flex max-w-[45%] shrink-0 items-center gap-1.5 text-xs font-medium text-fog transition-colors hover:text-volt sm:max-w-none sm:gap-2 sm:text-sm"
           >
-            חזרה לאתר
-            <ArrowRight className="size-4" />
+            <span className="truncate">חזרה לאתר</span>
+            <ArrowRight className="size-4 shrink-0" />
           </Link>
         </div>
       </header>
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-clip">
         <article>
           <div className="relative">
             <img
@@ -127,7 +127,7 @@ export default async function ArticlePage(
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
           </div>
 
-          <div className="shell -mt-32 max-w-3xl">
+          <div className="shell -mt-24 max-w-3xl sm:-mt-32">
             <div className="flex flex-wrap items-center gap-4 text-xs text-fog">
               <span className="inline-flex items-center gap-1.5">
                 <CalendarDays className="size-3.5" />
@@ -143,7 +143,7 @@ export default async function ArticlePage(
               {article.title}
             </h1>
 
-            <p className="mt-6 border-s-2 border-volt ps-5 text-lg leading-relaxed text-fog">
+            <p className="mt-6 border-s-2 border-volt ps-4 text-base leading-relaxed text-fog sm:ps-5 sm:text-lg">
               {article.excerpt}
             </p>
 
@@ -162,7 +162,7 @@ export default async function ArticlePage(
             </div>
 
             {hasMore ? (
-              <div className="mb-16 rounded-2xl border border-volt/45 bg-volt/5 p-7 text-center sm:p-9">
+              <div className="mb-16 rounded-2xl border border-volt/45 bg-volt/5 p-5 text-center sm:p-9">
                 <p className="mx-auto max-w-md leading-relaxed text-fog">
                   זו ההצצה לפרק. לקריאת המאמר המלא — שלח הודעה בוואטסאפ ואשלח לך
                   את המשך.

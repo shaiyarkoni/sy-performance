@@ -10,7 +10,7 @@ export function ArticleBodyContent({ blocks }: { blocks: string[] }) {
             {block.slice(0, -1)}
           </h2>
         ) : (
-          <p key={index} className="text-lg leading-relaxed text-chalk">
+          <p key={index} className="text-base leading-relaxed text-chalk sm:text-lg">
             {block}
           </p>
         ),

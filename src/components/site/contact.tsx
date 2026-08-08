@@ -63,7 +63,7 @@ export function Contact({ contact, programNames }: ContactProps) {
   ).filter(([, url]) => url.trim());
 
   return (
-    <section id="contact" className="section relative bg-ink-soft">
+    <section id="contact" className="section relative scroll-mt-28 bg-ink-soft pb-28 sm:pb-24">
       <div className="grid-bg absolute inset-0 opacity-60" />
 
       <div className="shell relative grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-16">
@@ -165,7 +165,7 @@ export function Contact({ contact, programNames }: ContactProps) {
         </div>
 
         <Reveal delay={0.15} className="lg:pt-24">
-          <div className="rounded-2xl border border-line bg-surface p-7">
+          <div className="rounded-2xl border border-line bg-surface p-5 sm:p-7">
             <h3 className="text-lg font-black">פרטים ישירים</h3>
 
             <ul className="mt-5 space-y-4">

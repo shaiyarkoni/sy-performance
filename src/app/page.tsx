@@ -24,7 +24,7 @@ export default async function Home() {
     <>
       <Navbar />
 
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-clip">
         <Hero hero={content.hero} whatsappHref={whatsappHref} />
         <About about={content.about} />
         <Audience audience={content.audience} />

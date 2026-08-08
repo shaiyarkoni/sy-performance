@@ -211,7 +211,7 @@ export function MythQuizGame() {
             <p className="text-xs font-bold tracking-[0.15em] text-volt uppercase">
               הציון שלך
             </p>
-            <p className="mt-2 text-5xl font-black tabular-nums text-volt">
+            <p className="mt-2 text-4xl font-black tabular-nums text-volt sm:text-5xl">
               {correctCount}/{total}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-fog">

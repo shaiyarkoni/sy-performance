@@ -11,7 +11,7 @@ export default function MythQuizPage() {
   return (
     <>
       <GameSubpageHeader />
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col overflow-x-clip">
         <MythQuizGame />
       </main>
     </>

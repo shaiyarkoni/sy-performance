@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <main className="grid flex-1 place-items-center px-5 py-16">
+    <main className="grid flex-1 place-items-center px-[max(1.25rem,env(safe-area-inset-left))] py-12 pb-[max(3rem,env(safe-area-inset-bottom))]">
       <div className="grid-bg pointer-events-none fixed inset-0 opacity-60" />
 
       <div className="relative w-full max-w-sm">
@@ -17,7 +17,7 @@ export default function LoginPage() {
           <Brand />
         </div>
 
-        <div className="mt-6 rounded-2xl border border-line bg-surface p-7">
+        <div className="mt-6 rounded-2xl border border-line bg-surface p-5 sm:p-7">
           <h1 className="text-xl font-black">ניהול האתר</h1>
           <p className="mt-1.5 text-sm text-fog">
             האזור הזה פרטי. הזן את הסיסמה כדי להמשיך.

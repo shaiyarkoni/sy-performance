@@ -91,8 +91,8 @@ export function ContentEditor({ initial }: { initial: SiteContent }) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-xl">
-        <div className="shell flex h-18 items-center justify-between gap-4 py-4">
+      <header className="site-header-bar sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-xl">
+        <div className="shell flex min-h-14 items-center justify-between gap-2 py-2.5 sm:min-h-16 sm:gap-4 sm:py-4">
           <div className="flex items-center gap-4">
             <Brand compact />
             <span className="hidden text-sm text-fog sm:inline">
@@ -211,9 +211,9 @@ export function ContentEditor({ initial }: { initial: SiteContent }) {
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-ink/92 backdrop-blur-xl">
-        <div className="shell flex items-center justify-between gap-4 py-3.5">
-          <p className="text-sm">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-ink/92 pb-[env(safe-area-inset-bottom,0px)] backdrop-blur-xl">
+        <div className="shell flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-3.5">
+          <p className="text-xs sm:text-sm">
             {error ? (
               <span className="text-red-400">{error}</span>
             ) : message ? (
@@ -232,7 +232,7 @@ export function ContentEditor({ initial }: { initial: SiteContent }) {
             type="button"
             onClick={handleSave}
             disabled={!dirty || saving}
-            className={buttonClass("volt", "md")}
+            className={buttonClass("volt", "md", "w-full sm:w-auto")}
           >
             {saving ? <Loader2 className="size-4 animate-spin" /> : null}
             {saving ? "שומר..." : "שמור שינויים"}

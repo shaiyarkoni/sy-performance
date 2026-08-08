@@ -382,7 +382,7 @@ export function ReactionGame() {
           >
             {muted ? <VolumeX className="size-5" /> : <Volume2 className="size-5" />}
           </button>
-          <span className="text-8xl font-black text-volt tabular-nums animate-pulse">
+          <span className="text-6xl font-black text-volt tabular-nums animate-pulse sm:text-8xl">
             {countdown}
           </span>
           <p className="absolute bottom-8 max-w-xs text-center text-xs text-fog/80">

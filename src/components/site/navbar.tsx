@@ -40,13 +40,13 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`site-header-bar fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "border-b border-line bg-ink/85 backdrop-blur-xl"
             : "border-b border-transparent"
         }`}
       >
-        <nav className="shell flex h-18 items-center justify-between gap-6 py-4">
+        <nav className="shell flex min-h-16 items-center justify-between gap-2 py-3 sm:gap-6 sm:py-4">
           <a href="#top" className="shrink-0">
             <Brand />
           </a>
@@ -94,9 +94,9 @@ export function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-60 bg-ink/97 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-60 flex flex-col bg-ink/97 backdrop-blur-xl lg:hidden"
           >
-            <div className="shell flex h-18 items-center justify-between py-4">
+            <div className="site-header-bar shell flex min-h-16 shrink-0 items-center justify-between py-3">
               <Brand />
               <button
                 type="button"
@@ -108,7 +108,7 @@ export function Navbar() {
               </button>
             </div>
 
-            <ul className="shell mt-6 flex flex-col gap-1">
+            <ul className="shell min-h-0 flex-1 overflow-y-auto overscroll-contain mt-4 flex flex-col gap-1 pb-8">
               {links.map((link, index) => (
                 <motion.li
                   key={link.href}
@@ -127,7 +127,7 @@ export function Navbar() {
               ))}
             </ul>
 
-            <div className="shell mt-8 flex flex-col gap-3">
+            <div className="shell shrink-0 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 flex flex-col gap-3">
               <Link
                 href="/game"
                 onClick={() => setOpen(false)}

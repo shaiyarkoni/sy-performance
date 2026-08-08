@@ -158,7 +158,7 @@ export function SprintDuelGame() {
 
       {phase === "countdown" && (
         <div className="grid min-h-[40vh] place-items-center">
-          <span className="text-8xl font-black text-volt tabular-nums animate-pulse">
+          <span className="text-6xl font-black text-volt tabular-nums animate-pulse sm:text-8xl">
             {countdown}
           </span>
         </div>

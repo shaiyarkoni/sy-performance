@@ -76,8 +76,8 @@ export function Footer({ content }: { content: SiteContent }) {
       </div>
 
       <div className="border-t border-line">
-        <div className="shell flex items-center justify-between gap-4 py-5">
-          <p className="text-xs text-fog">
+        <div className="shell flex flex-col items-start justify-between gap-3 py-5 sm:flex-row sm:items-center sm:gap-4">
+          <p className="text-xs leading-relaxed text-fog">
             © {new Date().getFullYear()} {content.brand.name}. כל הזכויות
             שמורות.
           </p>

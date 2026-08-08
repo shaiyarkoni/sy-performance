@@ -12,7 +12,7 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden pt-28"
+      className="relative flex min-h-[100dvh] flex-col justify-end overflow-hidden pt-[calc(6.5rem+env(safe-area-inset-top,0px))]"
     >
       <img
         src={hero.image}
@@ -32,7 +32,7 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
           </span>
         </div>
 
-        <h1 className="mt-6 max-w-4xl text-4xl font-black text-balance sm:text-6xl lg:text-7xl">
+        <h1 className="mt-6 max-w-4xl text-[clamp(1.75rem,7vw,3.75rem)] font-black text-balance sm:text-6xl lg:text-7xl">
           {hero.title}
         </h1>
 
@@ -61,9 +61,9 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
           {hero.stats.map((stat) => (
             <div
               key={stat.id}
-              className="border-s border-line px-1 py-6 text-center [&:nth-child(2n+1)]:border-s-0 lg:py-8 lg:[&:nth-child(2n+1)]:border-s lg:[&:nth-child(4n+1)]:border-s-0"
+              className="border-s border-line px-2 py-5 text-center sm:px-1 sm:py-6 lg:py-8 [&:nth-child(2n+1)]:border-s-0 lg:[&:nth-child(2n+1)]:border-s lg:[&:nth-child(4n+1)]:border-s-0"
             >
-              <div className="text-3xl font-black text-volt tabular-nums sm:text-4xl">
+              <div className="text-2xl font-black text-volt tabular-nums sm:text-3xl md:text-4xl">
                 <Counter value={stat.value} />
               </div>
               <div className="mt-1.5 text-xs text-fog sm:text-sm">

@@ -47,6 +47,9 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#08090a",
 };
 
@@ -58,7 +61,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
       className={`${heebo.variable} h-full scroll-smooth`}
     >
-      <body className="flex min-h-full flex-col antialiased">{children}</body>
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-clip antialiased">
+        {children}
+      </body>
     </html>
   );
 }

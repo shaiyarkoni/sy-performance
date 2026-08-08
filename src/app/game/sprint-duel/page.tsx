@@ -12,7 +12,7 @@ export default function SprintDuelPage() {
   return (
     <>
       <GameSubpageHeader />
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-1 flex-col overflow-x-clip">
         <SprintDuelGame />
       </main>
     </>
