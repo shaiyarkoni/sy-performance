@@ -24,7 +24,7 @@ export function Footer({ content }: { content: SiteContent }) {
     <footer className="border-t border-line bg-ink">
       <div className="shell grid gap-10 py-14 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)_auto]">
         <div>
-          <Brand />
+          <Brand frame="tile" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-fog">
             {content.brand.tagline}. {content.contact.location}.
           </p>

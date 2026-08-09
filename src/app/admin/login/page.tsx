@@ -14,7 +14,7 @@ export default function LoginPage() {
 
       <div className="relative w-full max-w-sm">
         <div className="text-center">
-          <Brand />
+          <Brand frame="tile" />
         </div>
 
         <div className="mt-6 rounded-2xl border border-line bg-surface p-5 sm:p-7">
