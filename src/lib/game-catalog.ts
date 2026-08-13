@@ -9,15 +9,6 @@ export const GAME_CATALOG = [
     icon: "zap" as const,
   },
   {
-    href: "/game/sprint-duel",
-    title: "Key Dash",
-    subtitleHe: "2 שחקנים · Space מול Enter",
-    description:
-      "שני רצים במסלול. מי שלוחץ מהר יותר מקדם את הדמות — אפשר לעקוף! קו סיום אחרי 50 לחיצות.",
-    cta: "התחל מרוץ",
-    icon: "keyboard" as const,
-  },
-  {
     href: "/game/myth-quiz",
     title: "Myth Check",
     subtitleHe: "תזונה וכושר · כן / לא",

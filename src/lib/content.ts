@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import { list, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 import type { SiteContent } from "./types";
 
 const CONTENT_PATH = path.join(process.cwd(), "data", "content.json");
@@ -14,14 +14,11 @@ async function readFromBlob(): Promise<SiteContent | null> {
   if (!useBlobStorage()) return null;
 
   try {
-    const { blobs } = await list({ prefix: BLOB_PATHNAME, limit: 1 });
-    const blob = blobs[0];
-    if (!blob) return null;
+    const result = await get(BLOB_PATHNAME, { access: "private" });
+    if (!result) return null;
 
-    const response = await fetch(blob.url, { cache: "no-store" });
-    if (!response.ok) return null;
-
-    return (await response.json()) as SiteContent;
+    const text = await new Response(result.stream).text();
+    return JSON.parse(text) as SiteContent;
   } catch {
     return null;
   }
@@ -29,7 +26,7 @@ async function readFromBlob(): Promise<SiteContent | null> {
 
 async function writeToBlob(content: SiteContent): Promise<void> {
   await put(BLOB_PATHNAME, JSON.stringify(content, null, 2), {
-    access: "public",
+    access: "private",
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",

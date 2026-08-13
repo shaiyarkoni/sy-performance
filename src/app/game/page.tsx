@@ -6,7 +6,7 @@ import { GameHubCarousel } from "@/components/game/game-hub-carousel";
 
 export const metadata: Metadata = {
   title: "משחקי ביצועים — SY Performance",
-  description: "Ring Reaction, Key Dash ו-Myth Check — אתגרי קצב, תגובה וידע.",
+  description: "Ring Reaction ו-Myth Check — אתגרי קצב, תגובה וידע.",
 };
 
 export default function GameHubPage() {
@@ -33,7 +33,7 @@ export default function GameHubPage() {
         </p>
         <h1 className="mt-3 text-3xl font-black sm:text-4xl">בחר משחק</h1>
         <p className="mt-3 max-w-xl text-fog leading-relaxed">
-          דפדף בין שלושת האתגרים — Ring Reaction, Key Dash ו-Myth Check.
+          דפדף בין שני האתגרים — Ring Reaction ו-Myth Check.
         </p>
 
         <GameHubCarousel />

@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Brain, Keyboard, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Brain, Zap } from "lucide-react";
 import { buttonClass } from "@/components/ui/button";
 import { GAME_CATALOG } from "@/lib/game-catalog";
 
-const icons = { zap: Zap, keyboard: Keyboard, brain: Brain } as const;
+const icons = { zap: Zap, brain: Brain } as const;
 
 export function GameHubCarousel() {
   const scrollerRef = useRef<HTMLDivElement>(null);
