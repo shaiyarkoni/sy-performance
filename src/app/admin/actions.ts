@@ -4,6 +4,7 @@ import { createHash, timingSafeEqual } from "node:crypto";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { writeContent } from "@/lib/content";
+import { normalizeWhatsAppNumber } from "@/lib/whatsapp";
 import { endSession, isAuthenticated, startSession } from "@/lib/session";
 import type { SiteContent } from "@/lib/types";
 
@@ -41,17 +42,39 @@ export async function logout() {
   redirect("/admin/login");
 }
 
+function sanitizeContent(content: SiteContent): SiteContent {
+  const whatsappNumber = normalizeWhatsAppNumber(content.contact.whatsappNumber);
+  const phoneDisplay = content.contact.phoneDisplay
+    .replace(/[\u200e\u200f\u202a-\u202e]/g, "")
+    .trim();
+
+  return {
+    ...content,
+    contact: {
+      ...content.contact,
+      whatsappNumber,
+      phoneDisplay: phoneDisplay || whatsappNumber.replace(/^972/, "0"),
+    },
+  };
+}
+
 export async function saveContent(content: SiteContent) {
   // Server Actions are reachable directly, so the session is re-checked here and not only in the proxy.
   if (!(await isAuthenticated())) {
     return { ok: false as const, error: "פג תוקף ההתחברות. רענן והתחבר מחדש." };
   }
 
+  const payload = sanitizeContent(content);
+
   try {
-    await writeContent(content);
+    await writeContent(payload);
     revalidatePath("/", "layout");
     return { ok: true as const };
-  } catch {
-    return { ok: false as const, error: "שמירת הקובץ נכשלה." };
+  } catch (error) {
+    const message =
+      error instanceof Error && error.message.startsWith("BLOB_REQUIRED")
+        ? "ב-Vercel צריך Blob Store: Project → Storage → Create → Blob → Connect. אחרי זה Redeploy ונסה שוב."
+        : "שמירת הקובץ נכשלה.";
+    return { ok: false as const, error: message };
   }
 }

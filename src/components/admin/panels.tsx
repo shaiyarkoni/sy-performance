@@ -704,7 +704,7 @@ export function ContactPanel({ value, onChange }: PanelProps<"contact">) {
             value={value.whatsappNumber}
             dir="ltr"
             onChange={(whatsappNumber) => set({ whatsappNumber })}
-            hint="בפורמט בינלאומי בלי פלוס. למשל 972501234567"
+            hint="972546890426 — בלי +, בלי 0 בהתחלה (ישראל)"
           />
           <TextField
             label="טלפון לתצוגה"
