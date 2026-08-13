@@ -46,9 +46,14 @@ export function Navbar() {
             : "border-b border-transparent"
         }`}
       >
-        <nav className="shell flex min-h-16 items-center justify-between gap-2 py-3 sm:gap-6 sm:py-4">
-          <a href="#top" className="shrink-0">
-            <Brand />
+        <nav className="shell flex min-h-14 items-center justify-between gap-2 py-2 lg:min-h-16 lg:gap-6 lg:py-4">
+          <a href="#top" className="min-w-0 shrink">
+            <span className="lg:hidden">
+              <Brand compact />
+            </span>
+            <span className="hidden lg:inline-flex">
+              <Brand />
+            </span>
           </a>
 
           <ul className="hidden items-center gap-7 lg:flex">
@@ -65,13 +70,13 @@ export function Navbar() {
           </ul>
 
           <div
-            className="flex items-center gap-2 sm:gap-3"
+            className="flex shrink-0 items-center gap-1.5 lg:gap-3"
             style={{ direction: "ltr" }}
           >
-            <NavGameLink />
+            <NavGameLink className="hidden lg:inline-flex" />
             <a
               href="#contact"
-              className={buttonClass("volt", "md", "hidden sm:inline-flex")}
+              className={buttonClass("volt", "md", "hidden lg:inline-flex")}
             >
               דברו איתי
             </a>
@@ -96,8 +101,8 @@ export function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-60 flex flex-col bg-ink/97 backdrop-blur-xl lg:hidden"
           >
-            <div className="site-header-bar shell flex min-h-16 shrink-0 items-center justify-between py-3">
-              <Brand />
+            <div className="site-header-bar shell flex min-h-14 shrink-0 items-center justify-between py-2">
+              <Brand compact />
               <button
                 type="button"
                 onClick={() => setOpen(false)}

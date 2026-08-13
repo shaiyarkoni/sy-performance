@@ -31,7 +31,7 @@ export function Brand({ compact = false, frame = "pill" }: BrandProps) {
         width={width}
         height={height}
         priority={!compact}
-        className="h-auto w-auto max-w-[min(100%,8.25rem)] object-contain object-center sm:max-w-[min(100%,10rem)]"
+        className="h-auto w-auto max-w-[min(100%,6.75rem)] object-contain object-center sm:max-w-[min(100%,8.25rem)] lg:max-w-[min(100%,10rem)]"
         sizes={compact ? "112px" : "160px"}
       />
     </span>

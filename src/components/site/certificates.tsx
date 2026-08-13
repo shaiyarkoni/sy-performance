@@ -15,7 +15,7 @@ export function Certificates({
   const [active, setActive] = useState<Certificate | null>(null);
 
   return (
-    <section id="certificates" className="section relative bg-ink-soft">
+    <section id="certificates" className="section relative overflow-hidden bg-ink-soft">
       <div className="grid-bg absolute inset-0 opacity-60" />
 
       <div className="shell relative">
@@ -24,41 +24,76 @@ export function Certificates({
           heading={certificates.heading}
           subheading={certificates.subheading}
         />
+      </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {certificates.items.map((certificate, index) => (
-            <Reveal key={certificate.id} delay={index * 0.07}>
-              <button
-                type="button"
-                onClick={() => setActive(certificate)}
-                className="group block h-full w-full overflow-hidden rounded-2xl border border-line bg-surface text-start transition-colors duration-300 hover:border-volt/60"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={certificate.image}
-                    alt={certificate.title}
-                    loading="lazy"
-                    className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 grid place-items-center bg-ink/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                    <Maximize2 className="size-7 text-volt" />
-                  </div>
-                  <span className="absolute top-3 end-3 rounded-full bg-ink/80 px-2.5 py-1 text-xs font-bold text-volt backdrop-blur-sm">
-                    {certificate.year}
-                  </span>
+      <Reveal>
+        <div className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-2 md:hidden">
+          {certificates.items.map((certificate) => (
+            <button
+              key={certificate.id}
+              type="button"
+              onClick={() => setActive(certificate)}
+              className="group block w-[84vw] shrink-0 snap-start overflow-hidden rounded-2xl border border-line bg-surface text-start transition-colors duration-300 hover:border-volt/60 sm:w-[20rem]"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={certificate.image}
+                  alt={certificate.title}
+                  loading="lazy"
+                  className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 grid place-items-center bg-ink/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <Maximize2 className="size-7 text-volt" />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-base leading-snug font-black transition-colors group-hover:text-volt">
-                    {certificate.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-fog">
-                    {certificate.issuer}
-                  </p>
-                </div>
-              </button>
-            </Reveal>
+                <span className="absolute top-3 end-3 rounded-full bg-ink/80 px-2.5 py-1 text-xs font-bold text-volt backdrop-blur-sm">
+                  {certificate.year}
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base leading-snug font-black transition-colors group-hover:text-volt">
+                  {certificate.title}
+                </h3>
+                <p className="mt-1.5 text-sm text-fog">{certificate.issuer}</p>
+              </div>
+            </button>
           ))}
         </div>
+        <p className="mt-3 px-5 text-center text-xs text-fog md:hidden">
+          החלק ימינה ושמאלה לעוד תעודות
+        </p>
+      </Reveal>
+
+      <div className="shell relative hidden gap-5 md:mt-12 md:grid md:grid-cols-2 xl:grid-cols-4">
+        {certificates.items.map((certificate, index) => (
+          <Reveal key={certificate.id} delay={index * 0.07}>
+            <button
+              type="button"
+              onClick={() => setActive(certificate)}
+              className="group block h-full w-full overflow-hidden rounded-2xl border border-line bg-surface text-start transition-colors duration-300 hover:border-volt/60"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={certificate.image}
+                  alt={certificate.title}
+                  loading="lazy"
+                  className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 grid place-items-center bg-ink/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <Maximize2 className="size-7 text-volt" />
+                </div>
+                <span className="absolute top-3 end-3 rounded-full bg-ink/80 px-2.5 py-1 text-xs font-bold text-volt backdrop-blur-sm">
+                  {certificate.year}
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="text-base leading-snug font-black transition-colors group-hover:text-volt">
+                  {certificate.title}
+                </h3>
+                <p className="mt-1.5 text-sm text-fog">{certificate.issuer}</p>
+              </div>
+            </button>
+          </Reveal>
+        ))}
       </div>
 
       <AnimatePresence>
