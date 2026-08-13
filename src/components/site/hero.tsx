@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowLeft, ChevronDown } from "lucide-react";
 import { Counter } from "@/components/ui/counter";
 import { buttonClass } from "@/components/ui/button";
+import { useLocale } from "@/lib/i18n/locale";
 import type { SiteContent } from "@/lib/types";
 
 type HeroProps = {
@@ -9,6 +12,8 @@ type HeroProps = {
 };
 
 export function Hero({ hero, whatsappHref }: HeroProps) {
+  const { ui } = useLocale();
+
   return (
     <section
       id="top"
@@ -76,7 +81,7 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
 
       <a
         href="#about"
-        aria-label="גלול למטה"
+        aria-label={ui.scrollDown}
         className="absolute bottom-32 start-6 hidden animate-bounce text-fog transition-colors hover:text-volt lg:block"
       >
         <ChevronDown className="size-7" />

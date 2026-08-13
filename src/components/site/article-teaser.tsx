@@ -1,14 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, CalendarDays, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { buttonClass } from "@/components/ui/button";
+import { useLocale } from "@/lib/i18n/locale";
 import type { SiteContent } from "@/lib/types";
 
-function formatDate(value: string) {
+function formatDate(value: string, locale: string) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString("he-IL", {
+  return date.toLocaleDateString(locale === "he" ? "he-IL" : "en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -20,6 +23,7 @@ export function ArticleTeaser({
 }: {
   articles: SiteContent["articles"];
 }) {
+  const { locale, ui } = useLocale();
   const [featured, ...rest] = articles.items;
   if (!featured) return null;
 
@@ -48,7 +52,7 @@ export function ArticleTeaser({
               <div className="flex flex-wrap items-center gap-4 text-xs text-chalk/65">
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarDays className="size-3.5" />
-                  {formatDate(featured.date)}
+                  {formatDate(featured.date, locale)}
                 </span>
                 <span className="inline-flex items-center gap-1.5">
                   <Clock className="size-3.5" />
@@ -68,12 +72,10 @@ export function ArticleTeaser({
                 href={`/articles/${featured.slug}`}
                 className={buttonClass("volt", "lg", "mt-8 self-start")}
               >
-                מעבר למאמר מלא
+                {ui.articleReadMore}
                 <ArrowLeft className="size-4" />
               </Link>
-              <p className="mt-3 text-xs text-fog">
-                הצצה באתר · המשך בוואטסאפ
-              </p>
+              <p className="mt-3 text-xs text-fog">{ui.articleTeaserNote}</p>
             </div>
           </article>
         </Reveal>
@@ -94,7 +96,7 @@ export function ArticleTeaser({
                   />
                   <div className="flex flex-1 flex-col p-5">
                     <div className="text-xs text-fog">
-                      {formatDate(article.date)} · {article.readTime}
+                      {formatDate(article.date, locale)} · {article.readTime}
                     </div>
                     <h3 className="mt-2 text-lg leading-snug font-black text-chalk transition-colors group-hover:text-volt">
                       {article.title}

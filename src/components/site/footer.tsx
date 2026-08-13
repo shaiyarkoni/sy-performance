@@ -1,21 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Settings } from "lucide-react";
 import { Brand } from "./brand";
+import { LanguageToggle } from "./language-toggle";
 import { socialMeta } from "./social-icons";
+import { useLocale } from "@/lib/i18n/locale";
 import type { SiteContent, SocialPlatform } from "@/lib/types";
 
-const navLinks = [
-  { href: "/#about", label: "מי אני" },
-  { href: "/#audience", label: "למי זה מתאים" },
-  { href: "/#programs", label: "מסלולים" },
-  { href: "/#certificates", label: "תעודות" },
-  { href: "/#testimonials", label: "ממליצים" },
-  { href: "/#article", label: "מאמר" },
-  { href: "/#faq", label: "שאלות ותשובות" },
-  { href: "/#contact", label: "צור קשר" },
-];
-
 export function Footer({ content }: { content: SiteContent }) {
+  const { ui } = useLocale();
   const activeSocials = (
     Object.entries(content.contact.socials) as [SocialPlatform, string][]
   ).filter(([, url]) => url.trim());
@@ -32,10 +26,10 @@ export function Footer({ content }: { content: SiteContent }) {
 
         <nav>
           <h2 className="text-sm font-bold tracking-[0.18em] text-volt uppercase">
-            ניווט
+            {ui.footerNav}
           </h2>
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
-            {navLinks.map((link) => (
+            {ui.nav.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -51,7 +45,7 @@ export function Footer({ content }: { content: SiteContent }) {
         {activeSocials.length > 0 ? (
           <div>
             <h2 className="text-sm font-bold tracking-[0.18em] text-volt uppercase">
-              רשתות
+              {ui.footerSocial}
             </h2>
             <div className="mt-4 flex gap-2.5">
               {activeSocials.map(([platform, url]) => {
@@ -77,14 +71,16 @@ export function Footer({ content }: { content: SiteContent }) {
 
       <div className="border-t border-line">
         <div className="shell flex flex-col items-start justify-between gap-3 py-5 sm:flex-row sm:items-center sm:gap-4">
-          <p className="text-xs leading-relaxed text-fog">
-            © {new Date().getFullYear()} {content.brand.name}. כל הזכויות
-            שמורות.
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <p className="text-xs leading-relaxed text-fog">
+              © {new Date().getFullYear()} {content.brand.name}. {ui.footerRights}
+            </p>
+            <LanguageToggle />
+          </div>
           <Link
             href="/admin"
-            aria-label="כניסה לניהול האתר"
-            title="ניהול האתר"
+            aria-label={ui.adminEntry}
+            title={ui.adminEntry}
             className="text-fog/40 transition-colors hover:text-volt"
           >
             <Settings className="size-4" />

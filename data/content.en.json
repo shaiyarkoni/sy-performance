@@ -1,0 +1,283 @@
+{
+  "brand": {
+    "name": "SY Performance",
+    "tagline": "Strength and performance training for athletes"
+  },
+  "hero": {
+    "kicker": "Performance training for athletes aged 12 and up",
+    "title": "The court won't wait. Neither should your body.",
+    "subtitle": "I'm Shai Yarkoni, a strength and performance coach. I work with athletes who want to move faster, train harder, and keep their bodies durable through a full season — no shortcuts, just a precise program built around your sport and your needs.",
+    "primaryCta": "Book an intro session",
+    "secondaryCta": "View training plans",
+    "image": "/uploads/1785844125669-42f7614b.jpg",
+    "stats": [
+      { "id": "s1", "value": "4", "label": "Years coaching" },
+      { "id": "s2", "value": "50", "label": "Athletes coached" },
+      { "id": "s3", "value": "4", "label": "Sports" },
+      { "id": "s4", "value": "85", "label": "% return next season" }
+    ]
+  },
+  "about": {
+    "eyebrow": "About me",
+    "heading": "Sport-specific fitness. Results you can see on the field.",
+    "name": "Shai Yarkoni",
+    "role": "Certified fitness coach (youth) | B.Ed in Physical Education | Tennis coach",
+    "bio": "I'm Shai — a physical education teacher (B.Ed), strength and performance coach, and tennis coach. Having grown up on the courts as a competitive tennis player and now coaching athletes across ages — from kids to national-league adults and national teams — I know firsthand the physical and mental demands of competitive sport.\n\nMy approach is demanding yet personal: no two sessions are the same, because no two sports are the same. Before loading the body, we map your sport's demands, your competition schedule, and your training history — including sensitivities, past injuries, and weak points that need reinforcement.\n\nMy goal is simple: build a stronger, faster, more resilient athlete who can produce explosive power and peak fitness all season long — without getting injured.",
+    "image": "/uploads/1785843771306-f1f0acf7.png",
+    "highlights": [
+      "Smart load planning. Training built around your season and match schedule.",
+      "Sport-specific work. Speed, strength, and movement tailored to your sport.",
+      "Injury prevention and return-to-play. Strengthen weak links and respect injury history.",
+      "Professional, personal coaching. Full support for youth, teens, and adult athletes."
+    ]
+  },
+  "audience": {
+    "eyebrow": "Who it's for",
+    "heading": "For athletes aiming higher than average",
+    "subheading": "I work with athletes who want maximum performance on the field — from young starters to adults at the highest levels",
+    "items": [
+      {
+        "id": "a1",
+        "title": "Teen athletes (12–18)",
+        "description": "The critical years for building an athletic foundation. Focused work on movement quality, coordination, base strength, and power — with controlled load to prevent growth-related injuries and support healthy development.",
+        "image": "/placeholders/card.svg"
+      },
+      {
+        "id": "a2",
+        "title": "Competitive and adult athletes",
+        "description": "When every percent counts, you need to unlock your physical potential. Heavy emphasis on motor-unit recruitment, rate of force development, quick direction changes, and sport-specific agility.",
+        "image": "/placeholders/card.svg"
+      },
+      {
+        "id": "a4",
+        "title": "Returning from injury",
+        "description": "Finished physio but still lack confidence? A structured return-to-play process that strengthens weak points until you're fully back at competitive load — at a pace your body actually supports.",
+        "image": "/placeholders/card.svg"
+      }
+    ]
+  },
+  "programs": {
+    "eyebrow": "Programs",
+    "heading": "Choose the plan that fits you",
+    "subheading": "Every plan starts with movement screening and an alignment call. Prices are a monthly base and are tailored precisely to your needs and training load.",
+    "items": [
+      {
+        "id": "p1",
+        "name": "Full online",
+        "tagline": "Remote coaching package",
+        "description": "Remote coaching for athletes who want a professional plan, weekly follow-up, and technique precision — from anywhere, on their schedule.",
+        "price": "₪399",
+        "period": "per month",
+        "features": [
+          "Assessment and goal-mapping call on Zoom",
+          "Sport-specific training plan",
+          "Weekly follow-up and load updates",
+          "WhatsApp availability for questions"
+        ],
+        "popular": false,
+        "image": "/uploads/1785836560031-fa78ecf9.jpg"
+      },
+      {
+        "id": "p2",
+        "name": "Hybrid",
+        "tagline": "The best mix of in-person and online",
+        "description": "The ideal balance between independent work and in-person coaching. For athletes who want face-to-face sessions for metrics and technique on the field.",
+        "price": "₪499",
+        "period": "per month",
+        "features": [
+          "Initial assessment and needs mapping",
+          "Personal plan synced with your match schedule",
+          "One in-person 1-on-1 session",
+          "Strength/speed testing and technique checks",
+          "Weekly progress report",
+          "Full availability and support all week"
+        ],
+        "popular": true,
+        "image": "/uploads/1785836921106-906b577f.jpg"
+      },
+      {
+        "id": "p3",
+        "name": "VIP — full package",
+        "tagline": "Full professional support including personal training, advanced load planning, and nutrition guidance",
+        "description": "Close 1-on-1 work with no compromises. Full package including personal sessions, advanced periodization, and nutrition guidance.",
+        "price": "₪999",
+        "period": "per month",
+        "features": [
+          "4 in-person personal sessions per month",
+          "Full movement screen including strength and speed tests",
+          "Complete nutrition plan",
+          "Advanced load planning around league/competition",
+          "Full availability and support all week"
+        ],
+        "popular": false,
+        "image": "/uploads/1785844029931-dd5d5881.jpg"
+      }
+    ]
+  },
+  "certificates": {
+    "eyebrow": "Credentials & experience",
+    "heading": "The professional backbone behind the coaching",
+    "subheading": "Working with athletes takes a precise mix of academics, certifications, and field experience. My exercise physiology toolkit stays current to bring you maximum results.",
+    "items": [
+      {
+        "id": "c1",
+        "title": "B.Ed Physical Education",
+        "issuer": "Specialization in exercise physiology and athlete development",
+        "year": "",
+        "image": "/placeholders/certificate.svg"
+      },
+      {
+        "id": "c2",
+        "title": "Certified fitness coach",
+        "issuer": "Recognized certification for physical capacity and youth training",
+        "year": "",
+        "image": "/uploads/1786294473184-2ff84f8d.jpg"
+      },
+      {
+        "id": "c4",
+        "title": "Certified tennis coach",
+        "issuer": "Racket-sport movement, agility, and change-of-direction specialization",
+        "year": "",
+        "image": "/placeholders/certificate.svg"
+      },
+      {
+        "id": "6696049a",
+        "title": "National-league fitness coach",
+        "issuer": "Hands-on experience leading competitive athletes and managing high-level loads",
+        "year": "",
+        "image": "/uploads/1786294455665-d47d7f2b.jpg"
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "heading": "What athletes say",
+    "subheading": "Results on the field, performance gains, and confidence — in their words",
+    "items": [
+      {
+        "id": "cdb96f47",
+        "name": "Aviad Alfasi",
+        "sport": "Basketball",
+        "quote": "Shai helped me reach my goal (vertical jump) with a personal plan and follow-up. Highly recommend.",
+        "rating": 5,
+        "image": "/uploads/1785843956361-accbb173.png"
+      },
+      {
+        "id": "t2",
+        "name": "Noa Elimelech",
+        "sport": "Track & field, 400m",
+        "quote": "I worked with several strength coaches before Shai and none truly adapted training to my running. With him everything is measured — he knows exactly when to push and when to taper before a meet. I improved by 1.5 seconds in one season.",
+        "rating": 5,
+        "image": "/placeholders/avatar.svg"
+      },
+      {
+        "id": "67650ca8",
+        "name": "Noam Ghibli",
+        "sport": "Football",
+        "quote": "From the first session I saw the difference from other coaches — full respect for my team schedule and matches, a no-compromise personal plan, and a real personal connection. Highly recommended!",
+        "rating": 5,
+        "image": "/uploads/1786293306098-e49b7d15.jpg"
+      },
+      {
+        "id": "c6bfec7d",
+        "name": "Peleg Azulay",
+        "sport": "Tennis",
+        "quote": "My tennis improved a lot, along with competitions and tournaments — thanks to his training plans and mental prep tips before matches. You can see the professionalism. Warmly recommend!",
+        "rating": 5,
+        "image": "/uploads/1786293845184-862b20cf.jpg"
+      }
+    ]
+  },
+  "articles": {
+    "eyebrow": "From my book — The Athletic Code: physiology and training of physical abilities",
+    "heading": "Preview: physiological recovery and load management",
+    "subheading": "An in-depth guide I wrote (20+ pages) based on exercise physiology, current research, and field experience — the tools every athlete needs for maximal recovery and peak performance.",
+    "authorName": "Shai Yarkoni",
+    "copyrightNotice": "© SY Performance — Shai Yarkoni. All rights reserved. No copying, screenshots, redistribution, republishing, or use of this content (in whole or part) without prior written permission.",
+    "items": [
+      {
+        "id": "ar1",
+        "slug": "koach-lifnei-gil-16",
+        "title": "Physiological recovery in competitive sport — the complete guide for coaches and athletes",
+        "excerpt": "It's not just how hard you train, but how your body recovers between sessions. In this deep-dive (from my book on developing physical abilities) we explore hormonal regulation, training load, nutrition, sleep, and active recovery to reach peak performance.",
+        "body": "What is recovery and why it matters for performance\nThink of training like a hammer breaking a wall. The session itself doesn't build you — it's the stimulus that creates controlled breakdown. Recovery is the rebuilding phase.\nWhen we train at high intensity, the body undergoes immediate changes: depleted fuel stores, rising muscle acidity, and central nervous system fatigue. Recovery restores balance and can drive supercompensation — adaptation beyond your previous level.\n\nAcute vs chronic recovery\nAcute recovery happens in minutes to hours after training: heart rate drops, energy stores refill, and lactate is cleared. Chronic recovery spans days and weeks — muscle repair, aerobic adaptations, and hormonal balance.\n\nWithout adequate recovery, performance drops and injury risk rises. Recovery isn't separate from training — it's part of it.",
+        "readTime": "In-depth article",
+        "date": "2026-06-18",
+        "image": "/placeholders/article.svg"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Before you write — the answer might already be here",
+    "subheading": "These are the questions I hear most from athletes, parents, and coaches. Tap a question to open the answer.",
+    "items": [
+      {
+        "id": "f1",
+        "question": "From what age can strength training start?",
+        "answer": "From about 12–13, with a base of coordination and motivation, structured supervised training can begin. Before that the focus is movement, play, and bodyweight work — not heavy loads. We always start with assessment and match load to age and sport."
+      },
+      {
+        "id": "f2",
+        "question": "Will strength training interfere with team practices?",
+        "answer": "No — the goal is to complement what's missing in team training, not compete with it. The plan is built around your team schedule, emphasizing days with lower team load. When needed, we coordinate directly with your team coach."
+      },
+      {
+        "id": "f3",
+        "question": "How many sessions per week?",
+        "answer": "It depends on your plan and program.\nFull online coaching is also available."
+      },
+      {
+        "id": "f4",
+        "question": "Where do sessions take place?",
+        "answer": "In-person sessions are in a gym or outdoor setup with sport-appropriate equipment.\nDepends on the program."
+      },
+      {
+        "id": "f5",
+        "question": "Can I return after injury?",
+        "answer": "Yes, after clearance from your physio. I don't replace medical treatment, but I take you from \"cleared to return\" to full competitive load — at a pace your body supports."
+      },
+      {
+        "id": "f6",
+        "question": "How do we start? What happens in the first session?",
+        "answer": "Send a WhatsApp message or fill out the site form. We'll schedule a short call, then an intro session: basic movement screen, understanding your goals, and plan fit. No long commitment before we're sure it's the right match."
+      },
+      {
+        "id": "21312563",
+        "question": "Is training adapted to my specific sport?",
+        "answer": "Absolutely. Every plan is built personally for your sport's physical and movement demands (tennis, basketball, football, athletics, and more) — explosive power, change of direction, stability, and sport-specific injury prevention."
+      },
+      {
+        "id": "75e67712",
+        "question": "Does strength training hurt growth in young athletes?",
+        "answer": "No — that's an outdated myth. Current sports science shows supervised resistance training with proper technique is safe for youth. It doesn't harm growth; it strengthens the musculoskeletal system, improves bone density, and reduces injury risk."
+      },
+      {
+        "id": "5a914011",
+        "question": "What if I have games, tournaments, or exams this week?",
+        "answer": "Precise load management is a core part of my coaching. Plans are dynamic and adjust to your match schedule and physical/mental load. In heavy weeks we focus on recovery, strength maintenance, and prehab so you arrive fresh for competition."
+      },
+      {
+        "id": "64e9fec1",
+        "question": "How does follow-up work between sessions?",
+        "answer": "Coaching doesn't end when the session ends. The process includes ongoing follow-up, weekly load adjustments, periodic testing, and continuous availability for questions and tweaks as needed."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "heading": "Let's talk about your goals",
+    "subheading": "Fill in your details and go straight to my WhatsApp with a ready-made message.",
+    "whatsappNumber": "972546890426",
+    "phoneDisplay": "054-689-0426",
+    "email": "syaperformance@gmail.com",
+    "location": "Jerusalem area | Studio and outdoor sessions",
+    "socials": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "tiktok": "https://tiktok.com/",
+      "youtube": "https://youtube.com/",
+      "linkedin": ""
+    }
+  }
+}

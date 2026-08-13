@@ -1,7 +1,10 @@
+"use client";
+
 import { Check, Star } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { buttonClass } from "@/components/ui/button";
+import { useLocale } from "@/lib/i18n/locale";
 import { whatsappLink } from "@/lib/whatsapp";
 import type { SiteContent } from "@/lib/types";
 
@@ -11,6 +14,8 @@ type ProgramsProps = {
 };
 
 export function Programs({ programs, whatsappNumber }: ProgramsProps) {
+  const { ui } = useLocale();
+
   return (
     <section id="programs" className="section">
       <div className="shell">
@@ -33,7 +38,7 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
                 {program.popular ? (
                   <span className="absolute top-4 end-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-volt px-3 py-1.5 text-xs font-black text-ink">
                     <Star className="size-3.5 fill-ink" />
-                    הכי פופולרי
+                    {ui.programsPopular}
                   </span>
                 ) : null}
 
@@ -79,7 +84,7 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
                   <a
                     href={whatsappLink(
                       whatsappNumber,
-                      `היי, אני מתעניין במסלול "${program.name}" שראיתי באתר. אפשר פרטים?`,
+                      ui.programsWhatsapp(program.name),
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -89,7 +94,7 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
                       "mt-7 w-full",
                     )}
                   >
-                    מתעניין במסלול
+                    {ui.programsCta}
                   </a>
                 </div>
               </article>

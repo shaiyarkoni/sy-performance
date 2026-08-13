@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { buttonClass } from "@/components/ui/button";
 import { WhatsappIcon, socialMeta } from "./social-icons";
+import { useLocale } from "@/lib/i18n/locale";
 import { whatsappLink } from "@/lib/whatsapp";
 import type { SiteContent, SocialPlatform } from "@/lib/types";
 
@@ -24,6 +25,8 @@ const emptyForm = {
 };
 
 export function Contact({ contact, programNames }: ContactProps) {
+  const { ui } = useLocale();
+  const copy = ui.contact;
   const [form, setForm] = useState(emptyForm);
   const [error, setError] = useState("");
 
@@ -36,18 +39,22 @@ export function Contact({ contact, programNames }: ContactProps) {
     event.preventDefault();
 
     if (!form.name.trim() || !form.phone.trim()) {
-      setError("צריך לפחות שם וטלפון כדי שאוכל לחזור אליך");
+      setError(copy.errorRequired);
       return;
     }
 
     const lines = [
-      "היי שי, הגעתי דרך האתר.",
+      copy.whatsappLines.intro,
       "",
-      `שם: ${form.name.trim()}`,
-      `טלפון: ${form.phone.trim()}`,
-      form.age.trim() ? `גיל: ${form.age.trim()}` : "",
-      form.sport.trim() ? `ענף ספורט: ${form.sport.trim()}` : "",
-      form.program ? `מסלול שמעניין אותי: ${form.program}` : "",
+      `${copy.whatsappLines.name}: ${form.name.trim()}`,
+      `${copy.whatsappLines.phone}: ${form.phone.trim()}`,
+      form.age.trim()
+        ? `${copy.whatsappLines.age}: ${form.age.trim()}`
+        : "",
+      form.sport.trim()
+        ? `${copy.whatsappLines.sport}: ${form.sport.trim()}`
+        : "",
+      form.program ? `${copy.whatsappLines.program}: ${form.program}` : "",
       form.message.trim() ? `\n${form.message.trim()}` : "",
     ].filter(Boolean);
 
@@ -78,58 +85,55 @@ export function Contact({ contact, programNames }: ContactProps) {
             <form onSubmit={handleSubmit} className="mt-9 grid gap-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium">שם מלא *</span>
+                  <span className="text-sm font-medium">{copy.fullName}</span>
                   <input
                     className="field"
                     value={form.name}
                     onChange={(event) => update("name", event.target.value)}
-                    placeholder="איך קוראים לך?"
                     autoComplete="name"
                   />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium">טלפון *</span>
+                  <span className="text-sm font-medium">{copy.phone}</span>
                   <input
                     className="field"
                     value={form.phone}
                     onChange={(event) => update("phone", event.target.value)}
-                    placeholder="050-000-0000"
                     inputMode="tel"
                     autoComplete="tel"
                   />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium">גיל</span>
+                  <span className="text-sm font-medium">{copy.age}</span>
                   <input
                     className="field"
                     value={form.age}
                     onChange={(event) => update("age", event.target.value)}
-                    placeholder="למשל 15"
                     inputMode="numeric"
                   />
                 </label>
 
                 <label className="grid gap-2">
-                  <span className="text-sm font-medium">ענף ספורט</span>
+                  <span className="text-sm font-medium">{copy.sport}</span>
                   <input
                     className="field"
                     value={form.sport}
                     onChange={(event) => update("sport", event.target.value)}
-                    placeholder="כדורסל, כדורגל, אתלטיקה..."
+                    placeholder={copy.placeholders.sport}
                   />
                 </label>
               </div>
 
               <label className="grid gap-2">
-                <span className="text-sm font-medium">מסלול שמעניין אותך</span>
+                <span className="text-sm font-medium">{copy.program}</span>
                 <select
                   className="field"
                   value={form.program}
                   onChange={(event) => update("program", event.target.value)}
                 >
-                  <option value="">עוד לא בטוח, נדבר על זה</option>
+                  <option value="">{copy.programDefault}</option>
                   {programNames.map((name) => (
                     <option key={name} value={name}>
                       {name}
@@ -139,12 +143,12 @@ export function Contact({ contact, programNames }: ContactProps) {
               </label>
 
               <label className="grid gap-2">
-                <span className="text-sm font-medium">משהו שכדאי שאדע?</span>
+                <span className="text-sm font-medium">{copy.message}</span>
                 <textarea
                   className="field min-h-28 resize-y"
                   value={form.message}
                   onChange={(event) => update("message", event.target.value)}
-                  placeholder="פציעות בעבר, יעדים לעונה, זמינות לאימונים..."
+                  placeholder={copy.placeholders.message}
                 />
               </label>
 
@@ -154,19 +158,17 @@ export function Contact({ contact, programNames }: ContactProps) {
 
               <button type="submit" className={buttonClass("volt", "lg")}>
                 <Send className="size-4" />
-                שליחה בוואטסאפ
+                {copy.submit}
               </button>
 
-              <p className="text-xs text-fog">
-                הכפתור פותח את וואטסאפ עם ההודעה כבר מוכנה. אתה רק לוחץ שלח.
-              </p>
+              <p className="text-xs text-fog">{copy.submitNote}</p>
             </form>
           </Reveal>
         </div>
 
         <Reveal delay={0.15} className="lg:pt-24">
           <div className="rounded-2xl border border-line bg-surface p-5 sm:p-7">
-            <h3 className="text-lg font-black">פרטים ישירים</h3>
+            <h3 className="text-lg font-black">{copy.directDetails}</h3>
 
             <ul className="mt-5 space-y-4">
               <li>
@@ -203,7 +205,7 @@ export function Contact({ contact, programNames }: ContactProps) {
 
             {activeSocials.length > 0 ? (
               <>
-                <h3 className="mt-8 text-lg font-black">עקוב אחריי</h3>
+                <h3 className="mt-8 text-lg font-black">{copy.followMe}</h3>
                 <div className="mt-4 flex flex-wrap gap-2.5">
                   {activeSocials.map(([platform, url]) => {
                     const { label, Icon } = socialMeta[platform];
@@ -228,14 +230,14 @@ export function Contact({ contact, programNames }: ContactProps) {
             <a
               href={whatsappLink(
                 contact.whatsappNumber,
-                "היי שי, הגעתי דרך האתר ואשמח לשמוע פרטים על האימונים.",
+                copy.whatsappOpenDirect,
               )}
               target="_blank"
               rel="noopener noreferrer"
               className={buttonClass("outline", "lg", "mt-8 w-full")}
             >
               <WhatsappIcon className="size-4.5" />
-              פתח וואטסאפ ישירות
+              {copy.openWhatsapp}
             </a>
           </div>
         </Reveal>

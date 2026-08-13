@@ -5,21 +5,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Brand } from "./brand";
+import { LanguageToggle } from "./language-toggle";
 import { NavGameLink } from "./nav-game-link";
 import { buttonClass } from "@/components/ui/button";
-
-const links = [
-  { href: "#about", label: "מי אני" },
-  { href: "#audience", label: "למי זה מתאים" },
-  { href: "#programs", label: "מסלולים" },
-  { href: "#certificates", label: "תעודות" },
-  { href: "#testimonials", label: "ממליצים" },
-  { href: "#article", label: "מאמר" },
-  { href: "#faq", label: "שאלות ותשובות" },
-  { href: "#contact", label: "צור קשר" },
-];
+import { useLocale } from "@/lib/i18n/locale";
 
 export function Navbar() {
+  const { ui } = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -57,7 +49,7 @@ export function Navbar() {
           </a>
 
           <ul className="hidden items-center gap-7 lg:flex">
-            {links.map((link) => (
+            {ui.nav.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
@@ -70,7 +62,7 @@ export function Navbar() {
           </ul>
 
           <div
-            className="flex shrink-0 items-center gap-1.5 lg:gap-3"
+            className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:gap-3"
             style={{ direction: "ltr" }}
           >
             <NavGameLink className="hidden lg:inline-flex" />
@@ -78,12 +70,12 @@ export function Navbar() {
               href="#contact"
               className={buttonClass("volt", "md", "hidden lg:inline-flex")}
             >
-              דברו איתי
+              {ui.talkToMe}
             </a>
             <button
               type="button"
               onClick={() => setOpen(true)}
-              aria-label="פתיחת תפריט"
+              aria-label={ui.openMenu}
               className="grid size-10 place-items-center rounded-full border border-line text-chalk transition-colors hover:border-volt hover:text-volt lg:hidden"
             >
               <Menu className="size-5" />
@@ -106,7 +98,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="סגירת תפריט"
+                aria-label={ui.closeMenu}
                 className="grid size-10 place-items-center rounded-full border border-line text-chalk transition-colors hover:border-volt hover:text-volt"
               >
                 <X className="size-5" />
@@ -114,7 +106,7 @@ export function Navbar() {
             </div>
 
             <ul className="shell min-h-0 flex-1 overflow-y-auto overscroll-contain mt-4 flex flex-col gap-1 pb-8">
-              {links.map((link, index) => (
+              {ui.nav.map((link, index) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: 24 }}
@@ -133,19 +125,22 @@ export function Navbar() {
             </ul>
 
             <div className="shell shrink-0 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 flex flex-col gap-3">
+              <div className="flex justify-center">
+                <LanguageToggle />
+              </div>
               <Link
                 href="/game"
                 onClick={() => setOpen(false)}
                 className={buttonClass("outline", "lg", "w-full")}
               >
-                TEST GAME
+                {ui.testGame}
               </Link>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
                 className={buttonClass("volt", "lg", "w-full")}
               >
-                דברו איתי
+                {ui.talkToMe}
               </a>
             </div>
           </motion.div>
