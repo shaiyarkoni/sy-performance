@@ -99,10 +99,12 @@ export function SprintDuelGame() {
   useEffect(() => {
     if (phase !== "countdown") return;
     if (countdown <= 0) {
-      setPhase("racing");
-      lastP1TapRef.current = 0;
-      lastP2TapRef.current = 0;
-      return;
+      const t = setTimeout(() => {
+        setPhase("racing");
+        lastP1TapRef.current = 0;
+        lastP2TapRef.current = 0;
+      }, 0);
+      return () => clearTimeout(t);
     }
     const t = setTimeout(() => setCountdown((c) => c - 1), 1000);
     return () => clearTimeout(t);

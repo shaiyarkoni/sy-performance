@@ -88,7 +88,7 @@ export function ReactionGame() {
   const [roundActive, setRoundActive] = useState(false);
   const [flash, setFlash] = useState<"success" | "error" | null>(null);
   const [personalBest, setPersonalBest] = useState<ReactionPersonalBest | null>(
-    null,
+    () => (typeof window !== "undefined" ? loadPersonalBest() : null),
   );
 
   const [score, setScore] = useState(0);
@@ -125,10 +125,6 @@ export function ReactionGame() {
   useEffect(() => {
     roundRef.current = round;
   }, [round]);
-
-  useEffect(() => {
-    setPersonalBest(loadPersonalBest());
-  }, []);
 
   const clearDelayTimer = useCallback(() => {
     if (delayTimerRef.current) {
@@ -195,8 +191,8 @@ export function ReactionGame() {
     const session = countdownSessionRef.current;
 
     if (countdown <= 0) {
-      beginPlaying();
-      return;
+      const t = setTimeout(() => beginPlaying(), 0);
+      return () => clearTimeout(t);
     }
 
     const t = setTimeout(() => {
@@ -298,7 +294,9 @@ export function ReactionGame() {
       peakMs: Math.round(peakMs) || 9999,
       accuracy: Math.round(accuracy * 10) / 10,
     });
-    if (saved) setPersonalBest(saved);
+    if (!saved) return;
+    const t = setTimeout(() => setPersonalBest(saved), 0);
+    return () => clearTimeout(t);
   }, [phase, score, avgMs, peakMs, accuracy, roundsCompleted]);
 
   const tier =

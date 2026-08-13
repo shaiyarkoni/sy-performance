@@ -7,6 +7,11 @@ const SWISH_SRC = "/sounds/swish.mp3";
 const BUZZER_SRC = "/sounds/buzzer.mp3";
 const STORAGE_MUTE = "sy_reaction_mute";
 
+function readMutedPreference(): boolean {
+  if (typeof window === "undefined") return false;
+  return localStorage.getItem(STORAGE_MUTE) === "1";
+}
+
 const CROWD_VOLUME = 0.5;
 
 function absoluteSoundSrc(path: string): string {
@@ -26,7 +31,7 @@ export function useGameAudio() {
   const buzzerRef = useRef<HTMLAudioElement | null>(null);
   const mutedRef = useRef(false);
   const fadeTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const [muted, setMutedState] = useState(false);
+  const [muted, setMutedState] = useState(readMutedPreference);
   const [audioBlocked, setAudioBlocked] = useState(false);
 
   const ensureCrowd = useCallback(() => {
@@ -58,9 +63,7 @@ export function useGameAudio() {
   }, []);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_MUTE) === "1";
-    mutedRef.current = stored;
-    setMutedState(stored);
+    mutedRef.current = readMutedPreference();
     ensureCrowd();
     ensureSwish();
     ensureBuzzer();
