@@ -9,6 +9,7 @@ import { Certificates } from "@/components/site/certificates";
 import { Testimonials } from "@/components/site/testimonials";
 import { ArticleTeaser } from "@/components/site/article-teaser";
 import { Faq } from "@/components/site/faq";
+import { GameTeaser } from "@/components/site/game-teaser";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
 import { WhatsappFab } from "@/components/site/whatsapp-fab";
@@ -42,6 +43,7 @@ function HomePageInner() {
         <Certificates certificates={content.certificates} />
         <Testimonials testimonials={content.testimonials} />
         <ArticleTeaser articles={content.articles} />
+        <GameTeaser />
         <Faq faq={content.faq} />
         <Contact
           contact={content.contact}
