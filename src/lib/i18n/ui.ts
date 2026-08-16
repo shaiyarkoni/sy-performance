@@ -18,11 +18,6 @@ export type UiCopy = {
   programsWhatsapp: (programName: string) => string;
   articleReadMore: string;
   articleTeaserNote: string;
-  gameHub: {
-    eyebrow: string;
-    heading: string;
-    subheading: string;
-  };
   contact: {
     fullName: string;
     phone: string;
@@ -86,11 +81,6 @@ export const UI: Record<Locale, UiCopy> = {
       `היי, אני מתעניין במסלול "${programName}" שראיתי באתר. אפשר פרטים?`,
     articleReadMore: "מעבר למאמר מלא",
     articleTeaserNote: "הצצה באתר · המשך בוואטסאפ",
-    gameHub: {
-      eyebrow: "TEST GAME",
-      heading: "בחר משחק",
-      subheading: "Ring Reaction ו-Myth Check — אתגרי קצב, תגובה וידע.",
-    },
     contact: {
       fullName: "שם מלא *",
       phone: "טלפון *",
@@ -153,11 +143,6 @@ export const UI: Record<Locale, UiCopy> = {
       `Hi, I'm interested in the "${programName}" plan I saw on the website. Can you share details?`,
     articleReadMore: "Read full article",
     articleTeaserNote: "Preview on site · Continue on WhatsApp",
-    gameHub: {
-      eyebrow: "TEST GAME",
-      heading: "Pick a game",
-      subheading: "Ring Reaction and Myth Check — speed, reflex, and knowledge challenges.",
-    },
     contact: {
       fullName: "Full name *",
       phone: "Phone *",
