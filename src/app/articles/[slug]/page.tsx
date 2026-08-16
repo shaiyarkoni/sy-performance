@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { ArrowRight, CalendarDays, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Brand } from "@/components/site/brand";
 import { ArticleBodyContent } from "@/components/site/article-body-content";
 import { ArticleCopyrightNotice } from "@/components/site/article-copyright-notice";
+import { ArticlePageHero } from "@/components/site/article-page-hero";
 import { Footer } from "@/components/site/footer";
 import { WhatsappFab } from "@/components/site/whatsapp-fab";
 import { buttonClass } from "@/components/ui/button";
@@ -48,16 +49,6 @@ export async function generateMetadata(
         : undefined,
     },
   };
-}
-
-function formatDate(value: string) {
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString("he-IL", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
 }
 
 export default async function ArticlePage(
@@ -117,36 +108,9 @@ export default async function ArticlePage(
 
       <main className="flex-1 overflow-x-clip">
         <article>
-          <div className="relative">
-            <img
-              src={article.image}
-              alt=""
-              aria-hidden
-              className="h-72 w-full object-cover opacity-45 sm:h-96"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
-          </div>
+          <ArticlePageHero article={article} articlesMeta={content.articles} />
 
-          <div className="shell -mt-24 max-w-3xl sm:-mt-32">
-            <div className="flex flex-wrap items-center gap-4 text-xs text-fog">
-              <span className="inline-flex items-center gap-1.5">
-                <CalendarDays className="size-3.5" />
-                {formatDate(article.date)}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="size-3.5" />
-                {article.readTime}
-              </span>
-            </div>
-
-            <h1 className="mt-4 text-3xl font-black text-balance sm:text-4xl lg:text-5xl">
-              {article.title}
-            </h1>
-
-            <p className="mt-6 border-s-2 border-volt ps-4 text-base leading-relaxed text-fog sm:ps-5 sm:text-lg">
-              {article.excerpt}
-            </p>
-
+          <div className="shell max-w-3xl">
             <div className="mt-8">
               <ArticleCopyrightNotice text={copyrightNotice} />
             </div>
