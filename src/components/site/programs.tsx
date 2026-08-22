@@ -31,7 +31,7 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
               <article
                 className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-surface transition-colors duration-300 ${
                   program.popular
-                    ? "border-volt shadow-[0_0_60px_-24px_rgba(198,248,51,0.6)]"
+                    ? "border-volt shadow-volt-card"
                     : "border-line hover:border-volt/50"
                 }`}
               >

@@ -5,11 +5,17 @@
   --color-ink-soft: #0e1113;
   --color-surface: #15181b;
   --color-surface-hi: #1d2226;
-  --color-line: #272d33;
-  --color-fog: #98a1a9;
+  --color-line: #243044;
+  --color-fog: #94a3b8;
   --color-chalk: #f5f7f8;
   --color-volt: #c6f833;
   --color-volt-deep: #9ccd0f;
+  --color-volt-glow: rgba(198, 248, 51, 0.55);
+  --color-volt-ring: rgba(198, 248, 51, 0.14);
+  --color-volt-shadow-soft: rgba(198, 248, 51, 0.25);
+  --color-volt-shadow-strong: rgba(198, 248, 51, 0.65);
+  --color-accent-cool: #38bdf8;
+  --color-accent-cool-deep: #0284c7;
 
   --font-sans: var(--font-heebo), ui-sans-serif, system-ui, sans-serif;
 }
@@ -117,7 +123,7 @@
   .stripes {
     background-image: repeating-linear-gradient(
       -45deg,
-      var(--color-volt) 0 2px,
+      var(--color-accent-cool) 0 2px,
       transparent 2px 9px
     );
   }
@@ -143,7 +149,23 @@
 
   .field:focus {
     border-color: var(--color-volt);
-    box-shadow: 0 0 0 3px rgba(198, 248, 51, 0.14);
+    box-shadow: 0 0 0 3px var(--color-volt-ring);
+  }
+
+  .shadow-volt {
+    box-shadow: 0 0 28px -6px var(--color-volt-glow);
+  }
+
+  .shadow-volt-fab {
+    box-shadow: 0 10px 40px -8px var(--color-volt-shadow-strong);
+  }
+
+  .shadow-volt-card {
+    box-shadow: 0 0 60px -24px var(--color-volt-glow);
+  }
+
+  .shadow-volt-image {
+    box-shadow: 0 24px 80px -40px var(--color-volt-shadow-soft);
   }
 }
 

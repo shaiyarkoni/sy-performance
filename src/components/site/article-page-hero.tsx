@@ -27,11 +27,11 @@ export function ArticlePageHero({ article, articlesMeta }: ArticlePageHeroProps)
     <header className="relative overflow-hidden border-b border-line bg-ink-soft">
       <div className="absolute inset-0 grid-bg opacity-35" aria-hidden />
       <div
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-volt/40 to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-l from-transparent via-accent-cool/40 to-transparent"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -start-24 top-8 size-64 rounded-full bg-volt/6 blur-3xl"
+        className="pointer-events-none absolute -start-24 top-8 size-64 rounded-full bg-accent-cool/6 blur-3xl"
         aria-hidden
       />
 
@@ -42,7 +42,7 @@ export function ArticlePageHero({ article, articlesMeta }: ArticlePageHeroProps)
 
         <div className="mt-5 flex flex-wrap items-center gap-2.5 sm:gap-3">
           <span className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/90 px-3 py-1.5 text-xs text-chalk/80">
-            <CalendarDays className="size-3.5 shrink-0 text-volt" />
+            <CalendarDays className="size-3.5 shrink-0 text-accent-cool" />
             {formatDate(article.date)}
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-volt/30 bg-volt/10 px-3 py-1.5 text-xs font-medium text-volt">
@@ -59,7 +59,7 @@ export function ArticlePageHero({ article, articlesMeta }: ArticlePageHeroProps)
         </h1>
 
         {showImage ? (
-          <div className="mt-8 overflow-hidden rounded-2xl border border-line shadow-[0_24px_80px_-40px_rgba(198,248,51,0.25)]">
+          <div className="mt-8 overflow-hidden rounded-2xl border border-line shadow-volt-image">
             <img
               src={article.image}
               alt=""
@@ -68,7 +68,7 @@ export function ArticlePageHero({ article, articlesMeta }: ArticlePageHeroProps)
           </div>
         ) : null}
 
-        <p className="mt-8 border-s-2 border-volt ps-4 text-base leading-relaxed text-fog sm:ps-5 sm:text-lg">
+        <p className="mt-8 border-s-2 border-accent-cool ps-4 text-base leading-relaxed text-fog sm:ps-5 sm:text-lg">
           {article.excerpt}
         </p>
       </div>

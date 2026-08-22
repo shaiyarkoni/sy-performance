@@ -5,9 +5,9 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-full font-bold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-volt disabled:cursor-not-allowed disabled:opacity-55";
 
 const variants: Record<Variant, string> = {
-  volt: "bg-volt text-ink hover:bg-volt-deep hover:shadow-[0_0_28px_-6px_rgba(198,248,51,0.55)] active:scale-[0.98]",
+  volt: "bg-volt text-ink hover:bg-volt-deep hover:shadow-volt active:scale-[0.98]",
   outline:
-    "border border-line bg-transparent text-chalk hover:border-volt hover:text-volt active:scale-[0.98]",
+    "border border-line bg-transparent text-chalk hover:border-accent-cool hover:text-accent-cool active:scale-[0.98]",
   ghost: "text-fog hover:text-chalk",
 };
 
