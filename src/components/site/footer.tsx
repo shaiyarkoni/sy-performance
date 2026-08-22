@@ -25,7 +25,7 @@ export function Footer({ content }: { content: SiteContent }) {
         </div>
 
         <nav>
-          <h2 className="text-sm font-bold tracking-[0.18em] text-volt uppercase">
+          <h2 className="text-sm font-bold tracking-[0.18em] text-accent-cool uppercase">
             {ui.footerNav}
           </h2>
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5">
@@ -44,7 +44,7 @@ export function Footer({ content }: { content: SiteContent }) {
 
         {activeSocials.length > 0 ? (
           <div>
-            <h2 className="text-sm font-bold tracking-[0.18em] text-volt uppercase">
+            <h2 className="text-sm font-bold tracking-[0.18em] text-accent-cool uppercase">
               {ui.footerSocial}
             </h2>
             <div className="mt-4 flex gap-2.5">

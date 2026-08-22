@@ -9,7 +9,7 @@ export function About({ about }: { about: SiteContent["about"] }) {
     <section id="about" className="section relative overflow-hidden">
       <div className="shell grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16">
         <Reveal className="relative">
-          <div className="absolute -inset-3 -z-10 rounded-3xl border border-volt/25" />
+          <div className="absolute -inset-3 -z-10 rounded-3xl border border-accent-cool/25" />
           <div className="relative overflow-hidden rounded-2xl bg-surface">
             <img
               src={about.image}
@@ -19,7 +19,7 @@ export function About({ about }: { about: SiteContent["about"] }) {
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink to-transparent p-6 pt-20">
               <div className="text-xl font-black">{about.name}</div>
-              <div className="mt-1 text-sm text-volt">{about.role}</div>
+              <div className="mt-1 text-sm text-accent-cool">{about.role}</div>
             </div>
           </div>
         </Reveal>
@@ -27,8 +27,8 @@ export function About({ about }: { about: SiteContent["about"] }) {
         <div>
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-volt" />
-              <span className="text-xs font-bold tracking-[0.22em] text-volt uppercase">
+              <span className="h-px w-8 bg-accent-cool" />
+              <span className="text-xs font-bold tracking-[0.22em] text-accent-cool uppercase">
                 {about.eyebrow}
               </span>
             </div>

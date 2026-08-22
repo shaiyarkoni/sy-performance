@@ -28,7 +28,7 @@ export default function GameHubPage() {
     </header>
 
     <main className="shell flex flex-1 flex-col overflow-x-clip py-8 sm:py-14">
-        <p className="text-xs font-bold tracking-[0.2em] text-volt uppercase">
+        <p className="text-xs font-bold tracking-[0.2em] text-accent-cool uppercase">
           TEST GAME
         </p>
         <h1 className="mt-3 text-3xl font-black sm:text-4xl">בחר משחק</h1>
