@@ -301,16 +301,34 @@ export function ProgramsPanel({ value, onChange }: PanelProps<"programs">) {
               />
               <Row>
                 <TextField
-                  label="מחיר"
+                  label="מחיר (מבצע / נוכחי)"
                   value={item.price}
                   onChange={(price) => update({ price })}
-                  hint="למשל ₪750"
+                  hint="למשל ₪349"
                 />
+                <TextField
+                  label="מחיר לפני הנחה (אופציונלי)"
+                  value={item.originalPrice ?? ""}
+                  onChange={(originalPrice) =>
+                    update({ originalPrice: originalPrice || undefined })
+                  }
+                  hint="יוצג עם קו חוצה, למשל ₪399"
+                />
+              </Row>
+              <Row>
                 <TextField
                   label="תקופה"
                   value={item.period}
                   onChange={(period) => update({ period })}
                   hint="למשל לחודש"
+                />
+                <TextField
+                  label="תווית מבצע (אופציונלי)"
+                  value={item.promoLabel ?? ""}
+                  onChange={(promoLabel) =>
+                    update({ promoLabel: promoLabel || undefined })
+                  }
+                  hint="למשל לכבוד עונה חדשה — מחיר מיוחד"
                 />
               </Row>
               <StringListField

@@ -17,6 +17,10 @@ export type Program = {
   tagline: string;
   description: string;
   price: string;
+  /** מחיר לפני הנחה — מוצג עם קו חוצה כשמוגדר */
+  originalPrice?: string;
+  /** טקסט קצר מעל המחיר, למשל «לכבוד עונה חדשה» */
+  promoLabel?: string;
   period: string;
   features: string[];
   popular: boolean;
