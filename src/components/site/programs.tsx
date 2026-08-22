@@ -68,13 +68,15 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
                         {program.promoLabel}
                       </p>
                     ) : null}
-                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       {program.originalPrice ? (
-                        <span className="text-lg font-bold text-fog line-through decoration-fog/80">
+                        <span className="text-xl font-bold text-fog/75 line-through decoration-fog/90">
                           {program.originalPrice}
                         </span>
                       ) : null}
-                      <span className="text-3xl font-black">{program.price}</span>
+                      <span className="text-3xl font-black text-volt">
+                        {program.price}
+                      </span>
                       <span className="text-sm text-fog">{program.period}</span>
                     </div>
                   </div>

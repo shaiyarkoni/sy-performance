@@ -38,10 +38,46 @@ async function readFromFile(): Promise<SiteContent> {
   return JSON.parse(raw) as SiteContent;
 }
 
+/** Promo fields from repo override blob for matching program ids. */
+function mergeProgramPromos(
+  content: SiteContent,
+  promoSource: SiteContent["programs"]["items"],
+): SiteContent {
+  const promoById = new Map(
+    promoSource.map((item) => [
+      item.id,
+      {
+        originalPrice: item.originalPrice,
+        price: item.price,
+        promoLabel: item.promoLabel,
+      },
+    ]),
+  );
+
+  return {
+    ...content,
+    programs: {
+      ...content.programs,
+      items: content.programs.items.map((item) => {
+        const promo = promoById.get(item.id);
+        if (!promo?.originalPrice && !promo?.promoLabel) return item;
+
+        return {
+          ...item,
+          originalPrice: promo.originalPrice,
+          price: promo.price,
+          promoLabel: promo.promoLabel,
+        };
+      }),
+    },
+  };
+}
+
 export async function getContent(): Promise<SiteContent> {
+  const fileContent = await readFromFile();
   const fromBlob = await readFromBlob();
-  if (fromBlob) return fromBlob;
-  return readFromFile();
+  const base = fromBlob ?? fileContent;
+  return mergeProgramPromos(base, fileContent.programs.items);
 }
 
 export async function writeContent(content: SiteContent): Promise<void> {
