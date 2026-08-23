@@ -11,8 +11,8 @@
     "secondaryCta": "View training plans",
     "image": "/uploads/1785844125669-42f7614b.jpg",
     "stats": [
-      { "id": "s1", "value": "4", "label": "Years coaching" },
-      { "id": "s2", "value": "50+", "label": "Athletes coached" },
+      { "id": "s1", "value": "6", "label": "Years coaching" },
+      { "id": "s2", "value": "70+", "label": "Athletes coached" },
       { "id": "s3", "value": "4", "label": "Sports" }
     ]
   },
