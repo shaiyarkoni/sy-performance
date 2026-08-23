@@ -73,11 +73,28 @@ function mergeProgramPromos(
   };
 }
 
+/** Repo overrides for hero stats and program promos (works even when Blob is stale). */
+function mergeRepoOverrides(
+  content: SiteContent,
+  fileContent: SiteContent,
+): SiteContent {
+  return mergeProgramPromos(
+    {
+      ...content,
+      hero: {
+        ...content.hero,
+        stats: fileContent.hero.stats,
+      },
+    },
+    fileContent.programs.items,
+  );
+}
+
 export async function getContent(): Promise<SiteContent> {
   const fileContent = await readFromFile();
   const fromBlob = await readFromBlob();
   const base = fromBlob ?? fileContent;
-  return mergeProgramPromos(base, fileContent.programs.items);
+  return mergeRepoOverrides(base, fileContent);
 }
 
 export async function writeContent(content: SiteContent): Promise<void> {

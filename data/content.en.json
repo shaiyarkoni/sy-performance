@@ -12,9 +12,8 @@
     "image": "/uploads/1785844125669-42f7614b.jpg",
     "stats": [
       { "id": "s1", "value": "4", "label": "Years coaching" },
-      { "id": "s2", "value": "50", "label": "Athletes coached" },
-      { "id": "s3", "value": "4", "label": "Sports" },
-      { "id": "s4", "value": "85", "label": "% return next season" }
+      { "id": "s2", "value": "50+", "label": "Athletes coached" },
+      { "id": "s3", "value": "4", "label": "Sports" }
     ]
   },
   "about": {

@@ -7,9 +7,10 @@ import { useInView } from "framer-motion";
 export function Counter({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
-  const match = value.match(/^(\d[\d,]*)(.*)$/);
-  const target = match ? Number(match[1].replace(/,/g, "")) : null;
-  const suffix = match ? match[2] : "";
+  const match = value.match(/^([^\d]*?)(\d[\d,]*)(.*)$/);
+  const prefix = match?.[1] ?? "";
+  const target = match?.[2] ? Number(match[2].replace(/,/g, "")) : null;
+  const suffix = match?.[3] ?? "";
   const [shown, setShown] = useState(0);
 
   useEffect(() => {
@@ -37,6 +38,7 @@ export function Counter({ value }: { value: string }) {
 
   return (
     <span ref={ref}>
+      {prefix}
       {shown.toLocaleString("he-IL")}
       {suffix}
     </span>

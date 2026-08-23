@@ -62,11 +62,11 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
       </div>
 
       <div className="relative border-t border-line bg-ink/60 backdrop-blur-sm">
-        <div className="shell grid grid-cols-2 lg:grid-cols-4">
+        <div className="shell grid grid-cols-2 md:grid-cols-3">
           {hero.stats.map((stat) => (
             <div
               key={stat.id}
-              className="border-s border-line px-2 py-5 text-center sm:px-1 sm:py-6 lg:py-8 [&:nth-child(2n+1)]:border-s-0 lg:[&:nth-child(2n+1)]:border-s lg:[&:nth-child(4n+1)]:border-s-0"
+              className="border-s border-line px-2 py-5 text-center sm:px-1 sm:py-6 md:py-8 [&:nth-child(2n+1)]:border-s-0 md:[&:nth-child(2n+1)]:border-s md:[&:nth-child(3n+1)]:border-s-0"
             >
               <div className="text-2xl font-black text-volt tabular-nums sm:text-3xl md:text-4xl">
                 <Counter value={stat.value} />
