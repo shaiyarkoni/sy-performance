@@ -73,20 +73,50 @@ function mergeProgramPromos(
   };
 }
 
-/** Repo overrides for hero stats and program promos (works even when Blob is stale). */
+/** Certificate title/issuer from repo override blob for matching ids. */
+function mergeCertificateText(
+  content: SiteContent,
+  fileContent: SiteContent,
+): SiteContent {
+  const fileById = new Map(
+    fileContent.certificates.items.map((item) => [item.id, item]),
+  );
+
+  return {
+    ...content,
+    certificates: {
+      ...content.certificates,
+      items: content.certificates.items.map((item) => {
+        const fileItem = fileById.get(item.id);
+        if (!fileItem) return item;
+
+        return {
+          ...item,
+          title: fileItem.title,
+          issuer: fileItem.issuer,
+        };
+      }),
+    },
+  };
+}
+
+/** Repo overrides for hero stats, program promos, and certificate text (works even when Blob is stale). */
 function mergeRepoOverrides(
   content: SiteContent,
   fileContent: SiteContent,
 ): SiteContent {
-  return mergeProgramPromos(
-    {
-      ...content,
-      hero: {
-        ...content.hero,
-        stats: fileContent.hero.stats,
+  return mergeCertificateText(
+    mergeProgramPromos(
+      {
+        ...content,
+        hero: {
+          ...content.hero,
+          stats: fileContent.hero.stats,
+        },
       },
-    },
-    fileContent.programs.items,
+      fileContent.programs.items,
+    ),
+    fileContent,
   );
 }
 
