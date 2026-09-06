@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { Brand } from "./brand";
-import { LanguageToggle } from "./language-toggle";
 import { NavGameLink } from "./nav-game-link";
 import { buttonClass } from "@/components/ui/button";
 import { useLocale } from "@/lib/i18n/locale";
@@ -125,9 +124,6 @@ export function Navbar() {
             </ul>
 
             <div className="shell shrink-0 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 flex flex-col gap-3">
-              <div className="flex justify-center">
-                <LanguageToggle />
-              </div>
               <Link
                 href="/game"
                 onClick={() => setOpen(false)}

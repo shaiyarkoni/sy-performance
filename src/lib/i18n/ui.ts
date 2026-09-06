@@ -174,5 +174,3 @@ export const UI: Record<Locale, UiCopy> = {
     },
   },
 };
-
-export const LOCALE_STORAGE_KEY = "sy-locale";

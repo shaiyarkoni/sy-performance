@@ -1,9 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Settings } from "lucide-react";
 import { Brand } from "./brand";
-import { LanguageToggle } from "./language-toggle";
 import { socialMeta } from "./social-icons";
 import { useLocale } from "@/lib/i18n/locale";
 import type { SiteContent, SocialPlatform } from "@/lib/types";
@@ -70,21 +68,10 @@ export function Footer({ content }: { content: SiteContent }) {
       </div>
 
       <div className="border-t border-line">
-        <div className="shell flex flex-col items-start justify-between gap-3 py-5 sm:flex-row sm:items-center sm:gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <p className="text-xs leading-relaxed text-fog">
-              © {new Date().getFullYear()} {content.brand.name}. {ui.footerRights}
-            </p>
-            <LanguageToggle />
-          </div>
-          <Link
-            href="/admin"
-            aria-label={ui.adminEntry}
-            title={ui.adminEntry}
-            className="text-fog/40 transition-colors hover:text-volt"
-          >
-            <Settings className="size-4" />
-          </Link>
+        <div className="shell py-5">
+          <p className="text-xs leading-relaxed text-fog">
+            © {new Date().getFullYear()} {content.brand.name}. {ui.footerRights}
+          </p>
         </div>
       </div>
     </footer>

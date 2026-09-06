@@ -17,8 +17,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 import type { SiteContent } from "@/lib/types";
 
 type HomePageProps = {
-  contentHe: SiteContent;
-  contentEn: SiteContent;
+  content: SiteContent;
 };
 
 function HomePageInner() {
@@ -54,9 +53,9 @@ function HomePageInner() {
   );
 }
 
-export function HomePage({ contentHe, contentEn }: HomePageProps) {
+export function HomePage({ content }: HomePageProps) {
   return (
-    <LocaleProvider contentHe={contentHe} contentEn={contentEn}>
+    <LocaleProvider content={content}>
       <HomePageInner />
     </LocaleProvider>
   );

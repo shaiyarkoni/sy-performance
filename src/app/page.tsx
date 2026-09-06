@@ -1,10 +1,8 @@
 import { HomePage } from "@/components/site/home-page";
 import { getContent } from "@/lib/content";
-import { getEnglishContent } from "@/lib/content-en";
 
 export default async function Home() {
-  const contentHe = await getContent();
-  const contentEn = getEnglishContent();
+  const content = await getContent();
 
-  return <HomePage contentHe={contentHe} contentEn={contentEn} />;
+  return <HomePage content={content} />;
 }
