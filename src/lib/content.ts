@@ -100,21 +100,38 @@ function mergeCertificateText(
   };
 }
 
-/** Repo overrides for hero stats, program promos, and certificate text (works even when Blob is stale). */
+/** Contact social links from repo override blob (works even when Blob is stale). */
+function mergeContactSocials(
+  content: SiteContent,
+  fileContent: SiteContent,
+): SiteContent {
+  return {
+    ...content,
+    contact: {
+      ...content.contact,
+      socials: fileContent.contact.socials,
+    },
+  };
+}
+
+/** Repo overrides for hero stats, program promos, certificate text, and socials. */
 function mergeRepoOverrides(
   content: SiteContent,
   fileContent: SiteContent,
 ): SiteContent {
-  return mergeCertificateText(
-    mergeProgramPromos(
-      {
-        ...content,
-        hero: {
-          ...content.hero,
-          stats: fileContent.hero.stats,
+  return mergeContactSocials(
+    mergeCertificateText(
+      mergeProgramPromos(
+        {
+          ...content,
+          hero: {
+            ...content.hero,
+            stats: fileContent.hero.stats,
+          },
         },
-      },
-      fileContent.programs.items,
+        fileContent.programs.items,
+      ),
+      fileContent,
     ),
     fileContent,
   );
