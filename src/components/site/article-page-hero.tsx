@@ -1,9 +1,6 @@
 import { CalendarDays, Clock } from "lucide-react";
+import { isPlaceholderImage } from "@/lib/placeholder-image";
 import type { Article, SiteContent } from "@/lib/types";
-
-function isPlaceholderImage(src: string) {
-  return src.includes("/placeholders/");
-}
 
 function formatDate(value: string) {
   const date = new Date(value);

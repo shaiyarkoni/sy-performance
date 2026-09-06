@@ -160,8 +160,6 @@ export function Contact({ contact, programNames }: ContactProps) {
                 <Send className="size-4" />
                 {copy.submit}
               </button>
-
-              <p className="text-xs text-fog">{copy.submitNote}</p>
             </form>
           </Reveal>
         </div>

@@ -5,7 +5,7 @@ export function GameFab() {
   return (
     <Link
       href="/game"
-      aria-label="TEST GAME — מבחן זמן תגובה Ring Reaction"
+      aria-label="TEST GAME — Myth Check"
       title="TEST GAME — אתגר ביצועים"
       className="group fixed bottom-24 start-6 z-40 inline-flex max-w-[calc(100vw-3rem)] items-center gap-2.5 rounded-full border-2 border-volt bg-ink/95 py-2.5 ps-2.5 pe-5 shadow-volt-fab ring-2 ring-volt/25 backdrop-blur-sm transition-transform duration-200 hover:scale-105 hover:bg-volt active:scale-95"
     >

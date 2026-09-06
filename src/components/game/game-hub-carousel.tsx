@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useCallback, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Brain, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Brain } from "lucide-react";
 import { buttonClass } from "@/components/ui/button";
 import { GAME_CATALOG } from "@/lib/game-catalog";
 
-const icons = { zap: Zap, brain: Brain } as const;
+const icons = { brain: Brain } as const;
 
 function GameCard({
   game,
@@ -48,7 +48,7 @@ function GameCard({
 function GameGrid({ className = "mt-10" }: { className?: string }) {
   return (
     <div
-      className={`grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:max-w-4xl ${className}`}
+      className={`mx-auto grid max-w-xl grid-cols-1 gap-4 sm:gap-6 ${className}`}
     >
       {GAME_CATALOG.map((game) => (
         <GameCard key={game.href} game={game} />

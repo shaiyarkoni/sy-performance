@@ -5,7 +5,9 @@ import { ArrowLeft, CalendarDays, Clock } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { buttonClass } from "@/components/ui/button";
+import { ArticleCoverPlaceholder } from "@/components/site/article-cover-placeholder";
 import { useLocale } from "@/lib/i18n/locale";
+import { isPlaceholderImage } from "@/lib/placeholder-image";
 import type { SiteContent } from "@/lib/types";
 
 function formatDate(value: string, locale: string) {
@@ -27,6 +29,9 @@ export function ArticleTeaser({
   const [featured, ...rest] = articles.items;
   if (!featured) return null;
 
+  const bookLabel = locale === "he" ? "הקוד האתלטי" : "The Athletic Code";
+  const coverBadge = locale === "he" ? "מדריך עומק" : "In-depth guide";
+
   return (
     <section id="article" className="section scroll-mt-24">
       <div className="shell">
@@ -39,12 +44,22 @@ export function ArticleTeaser({
         <Reveal className="mt-12">
           <article className="group grid overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-300 hover:border-volt/50 lg:grid-cols-2">
             <div className="relative overflow-hidden">
-              <img
-                src={featured.image}
-                alt={featured.title}
-                loading="lazy"
-                className="h-full min-h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+              {isPlaceholderImage(featured.image) ? (
+                <ArticleCoverPlaceholder
+                  title={featured.title}
+                  bookLabel={bookLabel}
+                  badge={coverBadge}
+                  variant="featured"
+                  className="h-full min-h-72 w-full lg:min-h-80"
+                />
+              ) : (
+                <img
+                  src={featured.image}
+                  alt={featured.title}
+                  loading="lazy"
+                  className="h-full min-h-72 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:min-h-80"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-l from-surface/70 to-transparent lg:bg-gradient-to-l" />
             </div>
 
@@ -88,12 +103,21 @@ export function ArticleTeaser({
                   href={`/articles/${article.slug}`}
                   className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-300 hover:border-volt/50"
                 >
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    loading="lazy"
-                    className="aspect-16/9 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {isPlaceholderImage(article.image) ? (
+                    <ArticleCoverPlaceholder
+                      title={article.title}
+                      bookLabel={bookLabel}
+                      badge={coverBadge}
+                      className="aspect-16/9 w-full"
+                    />
+                  ) : (
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      loading="lazy"
+                      className="aspect-16/9 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
                   <div className="flex flex-1 flex-col p-5">
                     <div className="text-xs text-fog">
                       {formatDate(article.date, locale)} · {article.readTime}

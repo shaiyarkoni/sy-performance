@@ -27,7 +27,6 @@ export type UiCopy = {
     message: string;
     programDefault: string;
     submit: string;
-    submitNote: string;
     directDetails: string;
     followMe: string;
     openWhatsapp: string;
@@ -90,7 +89,6 @@ export const UI: Record<Locale, UiCopy> = {
       message: "משהו שכדאי שאדע?",
       programDefault: "עוד לא בטוח, נדבר על זה",
       submit: "שליחה בוואטסאפ",
-      submitNote: "הכפתור פותח את וואטסאפ עם ההודעה כבר מוכנה. אתה רק לוחץ שלח.",
       directDetails: "פרטים ישירים",
       followMe: "עקוב אחריי",
       openWhatsapp: "פתח וואטסאפ ישירות",
@@ -152,8 +150,6 @@ export const UI: Record<Locale, UiCopy> = {
       message: "Anything I should know?",
       programDefault: "Not sure yet — let's talk",
       submit: "Send on WhatsApp",
-      submitNote:
-        "This opens WhatsApp with your message ready. You just tap send.",
       directDetails: "Direct details",
       followMe: "Follow me",
       openWhatsapp: "Open WhatsApp directly",
