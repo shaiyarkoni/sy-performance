@@ -29,11 +29,11 @@ export default function GameHubPage() {
 
     <main className="shell flex flex-1 flex-col overflow-x-clip py-8 sm:py-14">
         <p className="text-xs font-bold tracking-[0.2em] text-accent-cool uppercase">
-          TEST GAME
+          מיתוס או אמת?
         </p>
-        <h1 className="mt-3 text-3xl font-black sm:text-4xl">בחר משחק</h1>
+        <h1 className="mt-3 text-3xl font-black sm:text-4xl">שאלון ידע</h1>
         <p className="mt-3 max-w-xl text-fog leading-relaxed">
-          Myth Check — שאלון קצר על מיתוסים בתזונה וכושר.
+          10 שאלות על מיתוסים בתזונה וכושר — עם משוב מיד אחרי כל תשובה.
         </p>
 
         <GameHubCarousel />

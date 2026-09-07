@@ -65,7 +65,7 @@ export const UI: Record<Locale, UiCopy> = {
     talkToMe: "דברו איתי",
     openMenu: "פתיחת תפריט",
     closeMenu: "סגירת תפריט",
-    testGame: "TEST GAME",
+    testGame: "מיתוס או אמת?",
     whatsappDefault:
       "היי שי, הגעתי דרך האתר ואשמח לשמוע פרטים על האימונים.",
     whatsappFab: "שליחת הודעה בוואטסאפ",
@@ -126,7 +126,7 @@ export const UI: Record<Locale, UiCopy> = {
     talkToMe: "Talk to me",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    testGame: "TEST GAME",
+    testGame: "מיתוס או אמת?",
     whatsappDefault:
       "Hi Shai, I came through your website and would love details about training.",
     whatsappFab: "Send a WhatsApp message",

@@ -11,6 +11,7 @@ import { ArticleTeaser } from "@/components/site/article-teaser";
 import { Faq } from "@/components/site/faq";
 import { Contact } from "@/components/site/contact";
 import { Footer } from "@/components/site/footer";
+import { GameFab } from "@/components/site/game-fab";
 import { WhatsappFab } from "@/components/site/whatsapp-fab";
 import { LocaleProvider, useLocale } from "@/lib/i18n/locale";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -48,6 +49,7 @@ function HomePageInner() {
         />
       </main>
       <Footer content={content} />
+      <GameFab />
       <WhatsappFab href={whatsappHref} />
     </>
   );
