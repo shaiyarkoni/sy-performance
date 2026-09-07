@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import { Brand } from "./brand";
 import { NavGameLink } from "./nav-game-link";
 import { buttonClass } from "@/components/ui/button";
@@ -64,7 +63,7 @@ export function Navbar() {
             className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:gap-3"
             style={{ direction: "ltr" }}
           >
-            <NavGameLink className="hidden lg:inline-flex" />
+            <NavGameLink className="inline-flex max-[360px]:pe-1" />
             <a
               href="#contact"
               className={buttonClass("volt", "md", "hidden lg:inline-flex")}
@@ -124,13 +123,6 @@ export function Navbar() {
             </ul>
 
             <div className="shell shrink-0 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 flex flex-col gap-3">
-              <Link
-                href="/game"
-                onClick={() => setOpen(false)}
-                className={buttonClass("outline", "lg", "w-full")}
-              >
-                {ui.testGame}
-              </Link>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
