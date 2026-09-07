@@ -126,6 +126,7 @@ function mergeRepoOverrides(
           ...content,
           hero: {
             ...content.hero,
+            kicker: fileContent.hero.kicker,
             stats: fileContent.hero.stats,
           },
         },
