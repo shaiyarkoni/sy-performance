@@ -73,33 +73,6 @@ function mergeProgramPromos(
   };
 }
 
-/** Certificate title/issuer from repo override blob for matching ids. */
-function mergeCertificateText(
-  content: SiteContent,
-  fileContent: SiteContent,
-): SiteContent {
-  const fileById = new Map(
-    fileContent.certificates.items.map((item) => [item.id, item]),
-  );
-
-  return {
-    ...content,
-    certificates: {
-      ...content.certificates,
-      items: content.certificates.items.map((item) => {
-        const fileItem = fileById.get(item.id);
-        if (!fileItem) return item;
-
-        return {
-          ...item,
-          title: fileItem.title,
-          issuer: fileItem.issuer,
-        };
-      }),
-    },
-  };
-}
-
 /** Contact social links from repo override blob (works even when Blob is stale). */
 function mergeContactSocials(
   content: SiteContent,
@@ -114,26 +87,23 @@ function mergeContactSocials(
   };
 }
 
-/** Repo overrides for hero stats, program promos, certificate text, and socials. */
+/** Repo overrides for hero copy, program promos, and socials. */
 function mergeRepoOverrides(
   content: SiteContent,
   fileContent: SiteContent,
 ): SiteContent {
   return mergeContactSocials(
-    mergeCertificateText(
-      mergeProgramPromos(
-        {
-          ...content,
-          hero: {
-            ...content.hero,
-            kicker: fileContent.hero.kicker,
-            title: fileContent.hero.title,
-            stats: fileContent.hero.stats,
-          },
+    mergeProgramPromos(
+      {
+        ...content,
+        hero: {
+          ...content.hero,
+          kicker: fileContent.hero.kicker,
+          title: fileContent.hero.title,
+          stats: fileContent.hero.stats,
         },
-        fileContent.programs.items,
-      ),
-      fileContent,
+      },
+      fileContent.programs.items,
     ),
     fileContent,
   );
