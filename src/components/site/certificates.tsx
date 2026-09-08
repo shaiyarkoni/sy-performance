@@ -5,24 +5,49 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Maximize2, X } from "lucide-react";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
+import { isPlaceholderImage } from "@/lib/placeholder-image";
 import type { Certificate, SiteContent } from "@/lib/types";
 
+type CertRatio = "3/4" | "4/3" | "1/1";
+
+function ratioClass(ratio: CertRatio) {
+  if (ratio === "3/4") return "aspect-[3/4]";
+  if (ratio === "4/3") return "aspect-4/3";
+  return "aspect-square";
+}
+
+function detectRatio(width: number, height: number): CertRatio {
+  if (height > width * 1.08) return "3/4";
+  if (width > height * 1.08) return "4/3";
+  return "1/1";
+}
+
 function CertificateImage({ src, alt }: { src: string; alt: string }) {
+  const placeholder = isPlaceholderImage(src);
+  const [ratio, setRatio] = useState<CertRatio>(placeholder ? "4/3" : "3/4");
+
   return (
-    <div className="relative aspect-4/3 overflow-hidden bg-gradient-to-br from-[#1c2126] to-ink">
+    <div
+      className={`relative overflow-hidden bg-gradient-to-br from-[#1c2126] to-ink ${ratioClass(ratio)}`}
+    >
       <div
-        className="pointer-events-none absolute inset-3 rounded-sm border border-accent-cool/30 sm:inset-4"
+        className="pointer-events-none absolute inset-2 rounded-sm border border-accent-cool/30 sm:inset-3"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-5 rounded-sm border border-accent-cool/15 sm:inset-6"
+        className="pointer-events-none absolute inset-3 rounded-sm border border-accent-cool/15 sm:inset-4"
         aria-hidden
       />
       <img
         src={src}
         alt={alt}
         loading="lazy"
-        className="absolute inset-0 m-auto max-h-[78%] max-w-[78%] object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+        onLoad={(event) => {
+          if (placeholder) return;
+          const { naturalWidth, naturalHeight } = event.currentTarget;
+          setRatio(detectRatio(naturalWidth, naturalHeight));
+        }}
+        className="absolute inset-0 m-auto h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02] sm:p-3"
       />
     </div>
   );
@@ -128,7 +153,7 @@ export function Certificates({
               onClick={(event) => event.stopPropagation()}
               className="w-full max-w-3xl overflow-hidden rounded-2xl border border-line bg-surface"
             >
-              <div className="relative bg-gradient-to-br from-[#1c2126] to-ink">
+              <div className="relative min-h-[12rem] bg-gradient-to-br from-[#1c2126] to-ink sm:min-h-[14rem]">
                 <div
                   className="pointer-events-none absolute inset-4 rounded-sm border border-accent-cool/30 sm:inset-6"
                   aria-hidden
@@ -136,7 +161,7 @@ export function Certificates({
                 <img
                   src={active.image}
                   alt={active.title}
-                  className="mx-auto max-h-[65vh] w-full object-contain p-6 sm:p-8"
+                  className="mx-auto max-h-[65vh] w-full object-contain p-4 sm:p-6"
                 />
               </div>
               <div className="flex items-start justify-between gap-4 border-t border-line p-5">
