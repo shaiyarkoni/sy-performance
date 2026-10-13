@@ -31,8 +31,8 @@ export function Hero({ hero, whatsappHref }: HeroProps) {
 
       <div className="shell relative flex flex-1 flex-col justify-center py-16">
         <div className="flex items-center gap-3">
-          <span className="stripes h-4 w-12 rounded-sm" />
-          <span className="text-xs font-bold tracking-[0.2em] text-accent-cool uppercase sm:text-sm">
+          <span className="stripes h-5 w-14 rounded-sm" />
+          <span className="text-sm font-bold tracking-[0.16em] text-accent-cool uppercase sm:text-base">
             {hero.kicker}
           </span>
         </div>
