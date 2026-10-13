@@ -21,6 +21,10 @@ export type Program = {
   originalPrice?: string;
   /** טקסט קצר מעל המחיר, למשל «לכבוד עונה חדשה» */
   promoLabel?: string;
+  /** שורה קצרה מתחת למחיר, למשל «349 ₪ לחודש הראשון» */
+  priceNote?: string;
+  /** שורה משנית מתחת, למשל «לאחר מכן 449 ₪ לחודש» */
+  priceSubnote?: string;
   period: string;
   features: string[];
   popular: boolean;

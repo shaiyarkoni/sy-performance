@@ -65,9 +65,10 @@
         "name": "Full online",
         "tagline": "Remote coaching package",
         "description": "Remote coaching for athletes who want a professional plan, weekly follow-up, and technique precision — from anywhere, on their schedule.",
-        "originalPrice": "₪499",
-        "price": "₪299",
-        "promoLabel": "New season — limited-time offer",
+        "originalPrice": "₪399",
+        "price": "₪349",
+        "priceNote": "First-month intro offer",
+        "priceSubnote": "Then ₪399 per month",
         "period": "per month",
         "features": [
           "Assessment and goal-mapping call on Zoom",
@@ -83,7 +84,7 @@
         "name": "Hybrid",
         "tagline": "The best mix of in-person and online",
         "description": "The ideal balance between independent work and in-person coaching. For athletes who want face-to-face sessions for metrics and technique on the field.",
-        "price": "₪499",
+        "price": "₪599",
         "period": "per month",
         "features": [
           "Initial assessment and needs mapping",
@@ -101,7 +102,7 @@
         "name": "VIP — full package",
         "tagline": "Full professional support including personal training, advanced load planning, and nutrition guidance",
         "description": "Close 1-on-1 work with no compromises. Full package including personal sessions, advanced periodization, and nutrition guidance.",
-        "price": "₪999",
+        "price": "₪1,199",
         "period": "per month",
         "features": [
           "4 in-person personal sessions per month",

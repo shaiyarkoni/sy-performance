@@ -70,15 +70,27 @@ export function Programs({ programs, whatsappNumber }: ProgramsProps) {
                     ) : null}
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       {program.originalPrice ? (
-                        <span className="text-xl font-bold text-fog/75 line-through decoration-fog/90">
+                        <span className="text-base font-bold text-fog/70 line-through decoration-fog/80 sm:text-lg">
                           {program.originalPrice}
                         </span>
                       ) : null}
                       <span className="text-3xl font-black text-volt">
                         {program.price}
                       </span>
-                      <span className="text-sm text-fog">{program.period}</span>
+                      {!program.priceNote && program.period ? (
+                        <span className="text-sm text-fog">{program.period}</span>
+                      ) : null}
                     </div>
+                    {program.priceNote ? (
+                      <p className="mt-2 text-base font-bold leading-snug text-volt sm:text-lg">
+                        {program.priceNote}
+                      </p>
+                    ) : null}
+                    {program.priceSubnote ? (
+                      <p className="mt-1 text-sm leading-snug text-chalk/80">
+                        {program.priceSubnote}
+                      </p>
+                    ) : null}
                   </div>
 
                   <ul className="mt-5 flex-1 space-y-3">

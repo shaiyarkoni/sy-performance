@@ -331,6 +331,24 @@ export function ProgramsPanel({ value, onChange }: PanelProps<"programs">) {
                   hint="למשל לכבוד עונה חדשה — מחיר מיוחד"
                 />
               </Row>
+              <Row>
+                <TextField
+                  label="הסבר מחיר (אופציונלי)"
+                  value={item.priceNote ?? ""}
+                  onChange={(priceNote) =>
+                    update({ priceNote: priceNote || undefined })
+                  }
+                  hint="למשל 349 ₪ לחודש הראשון"
+                />
+                <TextField
+                  label="הסבר מחיר משני (אופציונלי)"
+                  value={item.priceSubnote ?? ""}
+                  onChange={(priceSubnote) =>
+                    update({ priceSubnote: priceSubnote || undefined })
+                  }
+                  hint="למשל לאחר מכן 449 ₪ לחודש"
+                />
+              </Row>
               <StringListField
                 label="מה כלול"
                 values={item.features}

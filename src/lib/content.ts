@@ -50,6 +50,8 @@ function mergeProgramPromos(
         originalPrice: item.originalPrice,
         price: item.price,
         promoLabel: item.promoLabel,
+        priceNote: item.priceNote,
+        priceSubnote: item.priceSubnote,
       },
     ]),
   );
@@ -60,13 +62,15 @@ function mergeProgramPromos(
       ...content.programs,
       items: content.programs.items.map((item) => {
         const promo = promoById.get(item.id);
-        if (!promo?.originalPrice && !promo?.promoLabel) return item;
+        if (!promo) return item;
 
         return {
           ...item,
           originalPrice: promo.originalPrice,
           price: promo.price,
           promoLabel: promo.promoLabel,
+          priceNote: promo.priceNote,
+          priceSubnote: promo.priceSubnote,
         };
       }),
     },
