@@ -22,8 +22,8 @@ export function SectionHeading({
       <div
         className={`flex items-center gap-3 ${centered ? "justify-center" : ""}`}
       >
-        <span className="stripes h-4 w-12 shrink-0 rounded-sm sm:h-5 sm:w-14" />
-        <span className="text-base font-bold tracking-[0.16em] text-accent-cool uppercase sm:text-lg">
+        <span className="stripes h-5 w-14 shrink-0 rounded-sm sm:h-6 sm:w-16" />
+        <span className="text-xl font-black tracking-[0.12em] text-accent-cool uppercase sm:text-2xl">
           {eyebrow}
         </span>
       </div>
