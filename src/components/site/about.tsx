@@ -27,8 +27,8 @@ export function About({ about }: { about: SiteContent["about"] }) {
         <div>
           <Reveal>
             <div className="flex items-center gap-3">
-              <span className="stripes h-3 w-10 shrink-0 rounded-sm sm:h-3.5 sm:w-11" />
-              <span className="text-sm font-bold tracking-[0.18em] text-accent-cool uppercase sm:text-base">
+              <span className="stripes h-4 w-12 shrink-0 rounded-sm sm:h-5 sm:w-14" />
+              <span className="text-base font-bold tracking-[0.16em] text-accent-cool uppercase sm:text-lg">
                 {about.eyebrow}
               </span>
             </div>
